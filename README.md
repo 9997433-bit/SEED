@@ -1,6 +1,6 @@
 # 机动战士高达 SEED 激斗命运 — 粉丝复刻项目
 
-非官方粉丝向项目，旨在以现代引擎复刻 2012 **PS Vita**《機動戦士ガンダムSEED BATTLE DESTINY》的核心玩法，目标平台为 **Steam（PC）** 与 **Nintendo Switch**。
+非官方粉丝向项目，以 **Steam 正式版 REMASTERED（[AppID 1857740](https://store.steampowered.com/app/1857740/)）** 为对照基准，复刻 2012 PS Vita《BATTLE DESTINY》核心玩法。目标平台：**Steam（PC）** 与 **Nintendo Switch**。
 
 > **免责声明**：本项目与万代南梦宫、Sunrise 或任何官方权利方无关联，未获任何授权。不包含官方资产。
 
