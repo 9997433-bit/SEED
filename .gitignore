@@ -1,0 +1,33 @@
+# Godot 4
+game/.godot/
+game/android/
+game/export_presets.cfg
+*.translation
+
+# Build output
+build/
+dist/
+*.pck
+*.exe
+*.x86_64
+*.dmg
+*.app
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Reference capture material (comparison footage must never enter git)
+reference/
+*.mp4
+*.mkv

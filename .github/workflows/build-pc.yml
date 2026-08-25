@@ -1,0 +1,103 @@
+name: build-pc
+
+# PC（Linux headless）构建冒烟：验证 Godot 工程能导入、脚本能解析、主场景能跑起来。
+# M0 只做「工程不腐化」的守门，不产出可分发的游戏包 —— 导出模板与 export_presets.cfg
+# 在 M1 接入（见 docs/REMAKE-PLAN.md 六、里程碑）。
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "game/**"
+      - "data/**"
+      - "tools/**"
+      - ".github/workflows/build-pc.yml"
+  pull_request:
+    paths:
+      - "game/**"
+      - "data/**"
+      - "tools/**"
+      - ".github/workflows/build-pc.yml"
+  workflow_dispatch:
+
+env:
+  # 与 game/project.godot 的 config/features 保持一致。
+  GODOT_RELEASE: "4.3-stable"
+  GODOT_BIN: "/home/runner/godot-bin/godot"
+
+jobs:
+  headless-smoke:
+    name: Godot headless 导入 + 主场景冒烟
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 缓存 Godot 可执行文件
+        id: godot-cache
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/godot-bin
+          key: godot-${{ env.GODOT_RELEASE }}-linux-x86_64
+
+      - name: 下载 Godot ${{ env.GODOT_RELEASE }}
+        if: steps.godot-cache.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          url="https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          mkdir -p "$(dirname "$GODOT_BIN")"
+          curl -fsSL --retry 3 --retry-delay 5 -o /tmp/godot.zip "$url"
+          unzip -q -o /tmp/godot.zip -d /tmp/godot-unpack
+          mv "/tmp/godot-unpack/Godot_v${GODOT_RELEASE}_linux.x86_64" "$GODOT_BIN"
+          chmod +x "$GODOT_BIN"
+
+      - name: Godot 版本
+        run: "$GODOT_BIN --version"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 导入资源（--import）
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/godot-logs
+          "$GODOT_BIN" --headless --path game --import 2>&1 | tee /tmp/godot-logs/import.log
+          python3 tools/ci/godot_log_filter.py /tmp/godot-logs/import.log
+
+      - name: GDScript 解析检查（--check-only）
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/godot-logs
+          status=0
+          while IFS= read -r -d '' file; do
+            res="res://${file#game/}"
+            if ! "$GODOT_BIN" --headless --path game --check-only --script "$res" 2>&1 | tee -a /tmp/godot-logs/check-only.log; then
+              status=1
+            fi
+            if grep -q "SCRIPT ERROR" /tmp/godot-logs/check-only.log; then
+              status=1
+            fi
+          done < <(find game -name '*.gd' -print0 | sort -z)
+          exit "$status"
+
+      - name: headless 运行主场景约 5 秒
+        run: |
+          set -euo pipefail
+          # --max-fps 60 + --quit-after 300 ≈ 5 秒真实运行；不靠 timeout 强杀，退出码才有意义。
+          "$GODOT_BIN" --headless --path game --max-fps 60 --quit-after 300 2>&1 | tee /tmp/godot-logs/main-scene.log
+          python3 tools/ci/godot_log_filter.py /tmp/godot-logs/main-scene.log
+
+      - name: headless 冒烟断言（数据管线 + Settings + 主场景）
+        run: |
+          set -euo pipefail
+          "$GODOT_BIN" --headless --path game --script res://scripts/ci/headless_smoke.gd 2>&1 | tee /tmp/godot-logs/smoke.log
+          python3 tools/ci/godot_log_filter.py /tmp/godot-logs/smoke.log --require "SMOKE: OK"
+
+      - name: 上传 Godot 日志
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-headless-logs
+          path: /tmp/godot-logs/
+          if-no-files-found: warn
+          retention-days: 7

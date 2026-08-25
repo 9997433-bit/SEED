@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_1000
+
+forms:
+  - id: form.zgmf_1000.warrior
+    display_name_key: loc.form.zaku_warrior_warrior
+    type: equipment_form
+    stat_modifiers:
+      firepower: 0.08
+    weapons:
+      - slot: main
+        weapon_id: weapon.machine_gun_light
+      - slot: melee
+        weapon_id: weapon.beam_javelin
+      - slot: sub
+        weapon_id: weapon.missile_pod
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.blade_rush]
+    transform_graph: []
+    mode_overlays: []
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_1000.phantom
+    display_name_key: loc.form.zaku_warrior_phantom
+    type: equipment_form
+    stat_modifiers:
+      mobility: 0.06
+      defense: -0.03
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_compact
+      - slot: sub
+        weapon_id: weapon.gatling_pod
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: special
+        weapon_id: weapon.smoke_dispenser
+    abilities: [ability.sp.stealth_ambush]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phantom_camouflage
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

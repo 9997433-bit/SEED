@@ -1,0 +1,43 @@
+# 首发 #3 灾恶 —— 重火力/装甲代表，验证重机体手感与站桩炮击。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.gat_x131
+model_number: GAT-X131
+display_name_key: loc.unit.calamity
+description_key: loc.unit.calamity.desc
+series: seed
+era: ce71
+faction_production: faction.omni
+faction_playable: faction.omni
+tags: [g_project, heavy, phase_shift]
+
+power_budget: 1080
+base_stats:
+  hp: 1250
+  en: 140
+  mobility: 0.55
+  defense: 0.78
+  size_class: large
+
+forms:
+  - form.gat_x131.standard
+forms_ref: units/forms/gat-x131.yaml
+default_form: form.gat_x131.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.generic_veteran
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #3（首发名单）"
+  - "机制标签：heavy 软克制表（3.8.2）"
+
+asset_binding:
+  model_id: placeholder.mech.block_heavy
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

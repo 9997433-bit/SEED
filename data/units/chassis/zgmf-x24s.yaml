@@ -1,0 +1,48 @@
+# 首发 #11 混沌 —— 空中 MA 变形；与盖亚/深渊构成变形三机组（后两台 Should 批次）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x24s
+model_number: ZGMF-X24S
+display_name_key: loc.unit.chaos
+description_key: loc.unit.chaos.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [transform, phase_shift, prototype]
+
+power_budget: 1080
+base_stats:
+  hp: 1050
+  en: 140
+  mobility: 0.76
+  defense: 0.65
+  size_class: medium
+
+forms:
+  - form.zgmf_x24s.ms
+  - form.zgmf_x24s.ma
+forms_ref: units/forms/zgmf-x24s.yaml
+default_form: form.zgmf_x24s.ms
+
+form_switch_policy:
+  type: transform_only
+  cooldown_sec: 2.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 1.0
+  allowed_states: [air, space]
+
+compatible_pilots:
+  - pilot.generic_veteran
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #11（首发名单）"
+  - "Must：≥3 条变形链可玩（圣盾 / 强夺 / 混沌）"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

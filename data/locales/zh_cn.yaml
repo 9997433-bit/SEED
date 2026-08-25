@@ -1,0 +1,150 @@
+# 简体中文（基准语言）。base: true 的语言必须覆盖全部被引用的 loc key，否则校验报错。
+# 术语口径参考公开中文译名，不复制任何官方文本段落。
+schema_version: "1.0.0"
+locale: zh_CN
+base: true
+
+entries:
+  # ---- 阵营 ----
+  loc.faction.omni: 地球联合军
+  loc.faction.zaft: ZAFT
+  loc.faction.orb: 奥布
+  loc.faction.three_ships: 三舰同盟
+  loc.faction.mercenary: 佣兵 / 中立
+
+  # ---- 机体名 ----
+  loc.unit.strike: 强袭
+  loc.unit.strike.desc: 可在战斗中更换背包的通用试作机，空/剑/炮三形态覆盖全距离。全项目换装基准。
+  loc.unit.dagger_l: 短剑 L
+  loc.unit.dagger_l.desc: 量产型主力机，性能均衡、门槛低，用作教学与杂兵模板。
+  loc.unit.calamity: 灾恶
+  loc.unit.calamity.desc: 重装炮击机，高耐久低机动，以站桩输出换取火力密度。
+  loc.unit.forbidden: 禁断
+  loc.unit.forbidden.desc: 装备方向性偏转装甲的防御特化机，正面承伤能力突出。
+  loc.unit.raider: 强夺
+  loc.unit.raider.desc: 可变形为高速 MA 的重量级机体，近战抓取与突袭并重。
+  loc.unit.aegis: 圣盾
+  loc.unit.aegis.desc: 早期可变形试作机，MA 形态换取机动与大出力主炮。
+  loc.unit.guaiz: 盖茨
+  loc.unit.guaiz.desc: 二代量产主力机，全项目相对强度基准（power_budget 1000）。
+  loc.unit.ginn: 金恩
+  loc.unit.ginn.desc: 初代量产机，作为杂兵与相对强度下限锚点。
+  loc.unit.zaku_warrior: 扎古勇士
+  loc.unit.zaku_warrior.desc: 可更换背包的量产机，战士型主打火力，幻影型主打隐蔽突袭。
+  loc.unit.impulse: 脉冲
+  loc.unit.impulse.desc: 三形态换装试作机，核心分离机制在 M0 简化为形态切换演出。
+  loc.unit.chaos: 混沌
+  loc.unit.chaos.desc: 搭载远隔操作兵装的可变形机，MA 形态制空能力强。
+  loc.unit.freedom: 自由
+  loc.unit.freedom.desc: 多目标齐射与觉醒模式叠加的高性能机，验证多重锁定管线。
+  loc.unit.justice: 正义
+  loc.unit.justice.desc: 可与大型合体装备结合的高性能机，合体后转为火力平台。
+  loc.unit.destiny: 命运
+  loc.unit.destiny.desc: 高机动 Boss 级机体，具备残像与光翼类表现（表现为原创实现）。
+  loc.unit.infinite_justice: 无限正义
+  loc.unit.infinite_justice.desc: 综合性能机，可分离飞行装备独立作战；首发后期解锁目标。
+  loc.unit.strike_rouge: 强袭嫣红
+  loc.unit.strike_rouge.desc: 精简换装机，共用 Striker 型背包槽，仅保留空装与剑装。
+  loc.unit.m1_astray: M1 异端
+  loc.unit.m1_astray.desc: 奥布量产机，偏防御与团队支援定位。
+  loc.unit.astray_red_frame: 红色异端
+  loc.unit.astray_red_frame.desc: 近战特化试作机，长刀二刀流验证长连段与硬直抗性。
+
+  # ---- 形态名 ----
+  loc.form.strike_aile: 空装型
+  loc.form.strike_sword: 剑装型
+  loc.form.strike_launcher: 炮装型
+  loc.form.dagger_l_standard: 标准型
+  loc.form.calamity_standard: 标准型
+  loc.form.forbidden_standard: 标准型
+  loc.form.raider_ms: MS 形态
+  loc.form.raider_ma: MA 形态
+  loc.form.aegis_ms: MS 形态
+  loc.form.aegis_ma: MA 形态
+  loc.form.guaiz_standard: 标准型
+  loc.form.ginn_standard: 标准型
+  loc.form.zaku_warrior_warrior: 战士型
+  loc.form.zaku_warrior_phantom: 幻影型
+  loc.form.impulse_force: 空战型
+  loc.form.impulse_sword: 剑装型
+  loc.form.impulse_blast: 炮装型
+  loc.form.chaos_ms: MS 形态
+  loc.form.chaos_ma: MA 形态
+  loc.form.freedom_standard: 标准型
+  loc.form.justice_standard: 标准型
+  loc.form.justice_meteor: 合体形态
+  loc.form.destiny_standard: 标准型
+  loc.form.infinite_justice_standard: 标准型
+  loc.form.infinite_justice_fatum: 分离飞行装备形态
+  loc.form.strike_rouge_aile: 空装型
+  loc.form.strike_rouge_sword: 剑装型
+  loc.form.m1_astray_standard: 标准型
+  loc.form.astray_red_frame_standard: 标准型
+
+  # ---- 武装 ----
+  loc.weapon.beam_rifle_standard: 标准光束步枪
+  loc.weapon.beam_rifle_compact: 轻型光束步枪
+  loc.weapon.beam_rifle_long: 长程光束步枪
+  loc.weapon.beam_cannon_heavy: 重型光束炮
+  loc.weapon.beam_cannon_array: 多联装光束炮
+  loc.weapon.beam_scatter_gun: 散射光束枪
+  loc.weapon.palm_beam_cannon: 掌部光束炮
+  loc.weapon.beam_boomerang: 光束回旋镖
+  loc.weapon.head_vulcan: 头部火神炮
+  loc.weapon.machine_gun_light: 轻型机枪
+  loc.weapon.bazooka_ballistic: 实弹火箭筒
+  loc.weapon.railgun_shoulder: 肩部电磁炮
+  loc.weapon.missile_pod: 导弹发射巢
+  loc.weapon.gatling_pod: 加特林荚舱
+  loc.weapon.rocket_anchor: 火箭锚
+  loc.weapon.beam_saber_standard: 光束军刀
+  loc.weapon.beam_saber_twin: 双持光束军刀
+  loc.weapon.anti_ship_sword: 对舰刀
+  loc.weapon.combat_knife: 战斗短刀
+  loc.weapon.beam_javelin: 光束标枪
+  loc.weapon.grapple_claw: 抓取爪
+  loc.weapon.long_blade_pair: 双长刀
+  loc.weapon.shield_beam_projector: 光束防御盾
+  loc.weapon.deflection_shield_panel: 偏转护盾面板
+  loc.weapon.ma_main_cannon: MA 主炮
+  loc.weapon.remote_weapon_pod: 远隔操作兵装
+  loc.weapon.smoke_dispenser: 烟雾发射器
+
+  # ---- 技能 ----
+  loc.ability.beam_barrage: 光束连射
+  loc.ability.blade_rush: 突进斩
+  loc.ability.siege_bombardment: 阵地炮击
+  loc.ability.shield_charge: 盾击突进
+  loc.ability.ma_strafe_run: MA 扫射突袭
+  loc.ability.full_burst_multi_lock: 全弹齐射
+  loc.ability.meteor_saturation: 合体饱和攻击
+  loc.ability.high_mobility_slash: 高机动斩击
+  loc.ability.assault_dash: 强袭冲刺
+  loc.ability.support_barrage: 支援弹幕
+  loc.ability.stealth_ambush: 隐蔽奇袭
+  loc.ability.reactive_plating: 反应装甲
+  loc.ability.thruster_tuning: 推进器调校
+  loc.ability.last_stand: 背水一战
+  loc.ability.pilot_focus: 集中
+  loc.ability.pilot_precision: 精密射击
+
+  # ---- 模式叠加层 ----
+  loc.overlay.phase_shift_armor: 相转移装甲
+  loc.overlay.directional_deflector: 方向偏转装甲
+  loc.overlay.heavy_siege_stance: 重炮站桩姿态
+  loc.overlay.seed_mode: 觉醒模式
+  loc.overlay.wings_of_light: 光翼
+  loc.overlay.phantom_camouflage: 幻影迷彩
+
+  # ---- 驾驶员特质 ----
+  loc.trait.coordinator: 调整者
+  loc.trait.natural: 自然人
+  loc.trait.seed_awakening: 觉醒素质
+  loc.trait.veteran: 老兵
+
+  # ---- 驾驶员（全部为原创占位角色） ----
+  loc.pilot.avatar_lead: 原创主角（占位）
+  loc.pilot.avatar_partner: 原创搭档（占位）
+  loc.pilot.generic_rookie: 新兵驾驶员
+  loc.pilot.generic_veteran: 老练驾驶员
+  loc.pilot.generic_ace: 王牌驾驶员

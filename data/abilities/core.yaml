@@ -1,0 +1,121 @@
+# SP アタック / 被动 / アディショナル 技能库（M0 占位）。
+# sp_cost 以 SP 目盛为单位（上限 6 格，SPA 约 3 格，见 REMAKE-PLAN 附录 C）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+abilities:
+  - id: ability.sp.beam_barrage
+    display_name_key: loc.ability.beam_barrage
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.0
+    trigger: manual
+    combination_partner_ok: true
+
+  - id: ability.sp.blade_rush
+    display_name_key: loc.ability.blade_rush
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.0
+    trigger: manual
+    combination_partner_ok: true
+
+  - id: ability.sp.siege_bombardment
+    display_name_key: loc.ability.siege_bombardment
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.5
+    trigger: manual
+
+  - id: ability.sp.shield_charge
+    display_name_key: loc.ability.shield_charge
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 2.5
+    trigger: manual
+
+  - id: ability.sp.ma_strafe_run
+    display_name_key: loc.ability.ma_strafe_run
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.0
+    trigger: manual
+
+  - id: ability.sp.full_burst_multi_lock
+    display_name_key: loc.ability.full_burst_multi_lock
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.5
+    trigger: manual
+    combination_partner_ok: true
+    notes: "多目标齐射；对照用例 M-02（锁定数上限与演出时序）。"
+
+  - id: ability.sp.meteor_saturation
+    display_name_key: loc.ability.meteor_saturation
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 4.0
+    trigger: manual
+    notes: "大型合体形态专用饱和攻击。"
+
+  - id: ability.sp.high_mobility_slash
+    display_name_key: loc.ability.high_mobility_slash
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.0
+    trigger: manual
+
+  - id: ability.sp.assault_dash
+    display_name_key: loc.ability.assault_dash
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 2.0
+    trigger: manual
+
+  - id: ability.sp.support_barrage
+    display_name_key: loc.ability.support_barrage
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 2.5
+    trigger: manual
+    combination_partner_ok: true
+
+  - id: ability.sp.stealth_ambush
+    display_name_key: loc.ability.stealth_ambush
+    type: sp_attack
+    owner_scope: chassis
+    sp_cost: 3.0
+    trigger: manual
+
+  - id: ability.passive.reactive_plating
+    display_name_key: loc.ability.reactive_plating
+    type: passive
+    owner_scope: chassis
+    trigger: always
+
+  - id: ability.passive.thruster_tuning
+    display_name_key: loc.ability.thruster_tuning
+    type: passive
+    owner_scope: shared
+    trigger: always
+
+  - id: ability.additional.last_stand
+    display_name_key: loc.ability.last_stand
+    type: additional
+    owner_scope: pilot
+    trigger: hp_threshold
+    hp_threshold: 0.3
+
+  - id: ability.sp.pilot_focus
+    display_name_key: loc.ability.pilot_focus
+    type: sp_attack
+    owner_scope: pilot
+    sp_cost: 3.0
+    trigger: manual
+
+  - id: ability.sp.pilot_precision
+    display_name_key: loc.ability.pilot_precision
+    type: sp_attack
+    owner_scope: pilot
+    sp_cost: 3.0
+    trigger: manual

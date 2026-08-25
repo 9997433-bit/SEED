@@ -1,0 +1,49 @@
+name: validate-data
+
+# 数据校验 CI：只跑 Python，不需要 Godot。
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "data/**"
+      - "tools/data_validator/**"
+      - "tests/**"
+      - "game/data_build/**"
+      - "Makefile"
+      - ".github/workflows/validate-data.yml"
+  pull_request:
+    paths:
+      - "data/**"
+      - "tools/data_validator/**"
+      - "tests/**"
+      - "game/data_build/**"
+      - "Makefile"
+      - ".github/workflows/validate-data.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: python -m pip install --upgrade pip -r tools/data_validator/requirements.txt
+
+      - name: 校验数据（jsonschema 引擎，Warning 视为失败）
+        run: python3 tools/data_validator/validate.py --strict --format github
+
+      - name: 校验数据（内置子集校验器回退路径）
+        env:
+          SEED_VALIDATOR_FORCE_BUILTIN: "1"
+        run: python3 tools/data_validator/validate.py --strict --quiet
+
+      - name: 校验器反向测试
+        run: python3 tests/test_data_validator.py
+
+      - name: 构建产物是否与数据一致
+        run: python3 tools/data_validator/validate.py --check-index game/data_build/units_index.json

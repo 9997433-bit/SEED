@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/title_screen.gd" id="1_title"]
+[ext_resource type="PackedScene" path="res://scenes/common/placeholder_mech.tscn" id="2_mech"]
+
+[sub_resource type="Environment" id="Environment_bridge"]
+background_mode = 1
+background_color = Color(0.043, 0.055, 0.086, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.38, 0.44, 0.56, 1)
+ambient_light_energy = 0.7
+fog_enabled = true
+fog_light_color = Color(0.07, 0.09, 0.14, 1)
+fog_density = 0.012
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(90, 90)
+
+[sub_resource type="StandardMaterial3D" id="Material_ground"]
+albedo_color = Color(0.11, 0.13, 0.17, 1)
+metallic = 0.05
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pedestal"]
+top_radius = 3.1
+bottom_radius = 3.4
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="Material_pedestal"]
+albedo_color = Color(0.16, 0.19, 0.25, 1)
+metallic = 0.2
+roughness = 0.6
+
+[sub_resource type="SystemFont" id="SystemFont_ui"]
+font_names = PackedStringArray("Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", "WenQuanYi Zen Hei", "Sans-Serif")
+allow_system_fallback = true
+
+[sub_resource type="Theme" id="Theme_ui"]
+default_font = SubResource("SystemFont_ui")
+default_font_size = 20
+
+[node name="TitleScreen" type="Node3D"]
+script = ExtResource("1_title")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bridge")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, 0.439385, -0.368688, 0, 0.642788, 0.766044, 0.573576, -0.627507, 0.526541, 0, 8, 0)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.763386, -0.0827605, 0.640619, 0, 0.991758, 0.128124, -0.645942, -0.0978079, 0.757095, 5.5, 3.2, 6.5)
+fov = 55.0
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ground")
+surface_material_override/0 = SubResource("Material_ground")
+
+[node name="Pedestal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("CylinderMesh_pedestal")
+surface_material_override/0 = SubResource("Material_pedestal")
+
+[node name="MechPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="PlaceholderMech" parent="MechPivot" instance=ExtResource("2_mech")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Root" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_ui")
+
+[node name="Margin" type="MarginContainer" parent="UI/Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 88
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 88
+theme_override_constants/margin_bottom = 56
+
+[node name="Layout" type="VBoxContainer" parent="UI/Root/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="UI/Root/Margin/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "机动战士启发：命运激斗"
+
+[node name="Subtitle" type="Label" parent="UI/Root/Margin/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.72, 0.88, 1)
+theme_override_font_sizes/font_size = 22
+text = "Mobile Frame Inspired: Destiny Clash — SEED 启发的非官方粉丝复刻 · M0 工程骨架"
+
+[node name="Spacer" type="Control" parent="UI/Root/Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Buttons" type="VBoxContainer" parent="UI/Root/Margin/Layout"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="SortieButton" type="Button" parent="UI/Root/Margin/Layout/Buttons"]
+custom_minimum_size = Vector2(340, 52)
+layout_mode = 2
+text = "出击"
+
+[node name="CatalogButton" type="Button" parent="UI/Root/Margin/Layout/Buttons"]
+custom_minimum_size = Vector2(340, 52)
+layout_mode = 2
+text = "机体一览"
+
+[node name="QuitButton" type="Button" parent="UI/Root/Margin/Layout/Buttons"]
+custom_minimum_size = Vector2(340, 52)
+layout_mode = 2
+text = "退出"
+
+[node name="Status" type="Label" parent="UI/Root/Margin/Layout"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.78, 0.65, 1)
+theme_override_font_sizes/font_size = 18
+text = "数据管线：载入中…"
+autowrap_mode = 3
+
+[node name="Disclaimer" type="Label" parent="UI/Root/Margin/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.58, 0.66, 1)
+theme_override_font_sizes/font_size = 15
+text = "非官方粉丝项目，与万代南梦宫 / Sunrise 及任何官方权利方无关联，未获授权，不含官方资产。"
+autowrap_mode = 3
+
+[node name="CatalogPanel" type="PanelContainer" parent="UI/Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -620.0
+offset_top = 64.0
+offset_right = -72.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Pad" type="MarginContainer" parent="UI/Root/CatalogPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Body" type="VBoxContainer" parent="UI/Root/CatalogPanel/Pad"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CatalogTitle" type="Label" parent="UI/Root/CatalogPanel/Pad/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "首发机体一览"
+
+[node name="CatalogHint" type="Label" parent="UI/Root/CatalogPanel/Pad/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.66, 0.76, 1)
+theme_override_font_sizes/font_size = 15
+text = "来源：data/ 经校验后生成的构建产物；全部为占位资产与自建数值。"
+autowrap_mode = 3
+
+[node name="Scroll" type="ScrollContainer" parent="UI/Root/CatalogPanel/Pad/Body"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CatalogList" type="VBoxContainer" parent="UI/Root/CatalogPanel/Pad/Body/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6

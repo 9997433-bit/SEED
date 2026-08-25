@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_600
+
+forms:
+  - id: form.zgmf_600.standard
+    display_name_key: loc.form.guaiz_standard
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: sub
+        weapon_id: weapon.rocket_anchor
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.passive.thruster_tuning]
+    transform_graph: []
+    mode_overlays: []
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

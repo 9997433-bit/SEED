@@ -1,0 +1,1488 @@
+{
+  "_generated_by": "tools/data_validator/validate.py",
+  "_warning": "构建产物，请勿手工编辑；由 make validate-data 重新生成。",
+  "schema_version": "1.0.0",
+  "balance_patch": "2026.08.0",
+  "milestone": "M0",
+  "locale": "zh_CN",
+  "counts": {
+    "chassis": 18,
+    "forms": 29,
+    "weapons": 27,
+    "abilities": 16,
+    "overlays": 6,
+    "pilots": 5
+  },
+  "factions": [
+    {
+      "id": "faction.mercenary",
+      "display_name": "佣兵 / 中立"
+    },
+    {
+      "id": "faction.omni",
+      "display_name": "地球联合军"
+    },
+    {
+      "id": "faction.orb",
+      "display_name": "奥布"
+    },
+    {
+      "id": "faction.three_ships",
+      "display_name": "三舰同盟"
+    },
+    {
+      "id": "faction.zaft",
+      "display_name": "ZAFT"
+    }
+  ],
+  "chassis": [
+    {
+      "id": "chassis.gat_01a2r",
+      "model_number": "GAT-01A2R",
+      "display_name": "短剑 L",
+      "description": "量产型主力机，性能均衡、门槛低，用作教学与杂兵模板。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.omni",
+      "tags": [
+        "mass_produced"
+      ],
+      "power_budget": 1000,
+      "base_stats": {
+        "hp": 950,
+        "en": 100,
+        "mobility": 0.68,
+        "defense": 0.62,
+        "size_class": "medium"
+      },
+      "default_form": "form.gat_01a2r.standard",
+      "forms": [
+        {
+          "id": "form.gat_01a2r.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.passive.thruster_tuning"
+          ],
+          "mode_overlays": [],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.gat_x105",
+      "model_number": "GAT-X105",
+      "display_name": "强袭",
+      "description": "可在战斗中更换背包的通用试作机，空/剑/炮三形态覆盖全距离。全项目换装基准。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.three_ships",
+      "tags": [
+        "g_project",
+        "swap_pack",
+        "phase_shift"
+      ],
+      "power_budget": 1050,
+      "base_stats": {
+        "hp": 1000,
+        "en": 120,
+        "mobility": 0.72,
+        "defense": 0.65,
+        "size_class": "medium"
+      },
+      "default_form": "form.gat_x105.aile",
+      "forms": [
+        {
+          "id": "form.gat_x105.aile",
+          "display_name": "空装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.assault_dash"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        },
+        {
+          "id": "form.gat_x105.sword",
+          "display_name": "剑装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.anti_ship_sword",
+              "display_name": "对舰刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.rocket_anchor",
+              "display_name": "火箭锚"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        },
+        {
+          "id": "form.gat_x105.launcher",
+          "display_name": "炮装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_cannon_heavy",
+              "display_name": "重型光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.railgun_shoulder",
+              "display_name": "肩部电磁炮"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.combat_knife",
+              "display_name": "战斗短刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.siege_bombardment"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.gat_x131",
+      "model_number": "GAT-X131",
+      "display_name": "灾恶",
+      "description": "重装炮击机，高耐久低机动，以站桩输出换取火力密度。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.omni",
+      "tags": [
+        "g_project",
+        "heavy",
+        "phase_shift"
+      ],
+      "power_budget": 1080,
+      "base_stats": {
+        "hp": 1250,
+        "en": 140,
+        "mobility": 0.55,
+        "defense": 0.78,
+        "size_class": "large"
+      },
+      "default_form": "form.gat_x131.standard",
+      "forms": [
+        {
+          "id": "form.gat_x131.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_cannon_heavy",
+              "display_name": "重型光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.railgun_shoulder",
+              "display_name": "肩部电磁炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.gatling_pod",
+              "display_name": "加特林荚舱"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.combat_knife",
+              "display_name": "战斗短刀"
+            }
+          ],
+          "abilities": [
+            "ability.sp.siege_bombardment",
+            "ability.passive.reactive_plating"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.heavy_siege_stance"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.gat_x252",
+      "model_number": "GAT-X252",
+      "display_name": "禁断",
+      "description": "装备方向性偏转装甲的防御特化机，正面承伤能力突出。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.omni",
+      "tags": [
+        "g_project",
+        "phase_shift"
+      ],
+      "power_budget": 1070,
+      "base_stats": {
+        "hp": 1100,
+        "en": 150,
+        "mobility": 0.62,
+        "defense": 0.85,
+        "size_class": "medium"
+      },
+      "default_form": "form.gat_x252.standard",
+      "forms": [
+        {
+          "id": "form.gat_x252.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_long",
+              "display_name": "长程光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_javelin",
+              "display_name": "光束标枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.deflection_shield_panel",
+              "display_name": "偏转护盾面板"
+            }
+          ],
+          "abilities": [
+            "ability.sp.shield_charge",
+            "ability.passive.reactive_plating"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.directional_deflector"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.gat_x303",
+      "model_number": "GAT-X303",
+      "display_name": "圣盾",
+      "description": "早期可变形试作机，MA 形态换取机动与大出力主炮。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "g_project",
+        "transform",
+        "phase_shift"
+      ],
+      "power_budget": 1080,
+      "base_stats": {
+        "hp": 1050,
+        "en": 130,
+        "mobility": 0.74,
+        "defense": 0.68,
+        "size_class": "medium"
+      },
+      "default_form": "form.gat_x303.ms",
+      "forms": [
+        {
+          "id": "form.gat_x303.ms",
+          "display_name": "MS 形态",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.beam_barrage"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.gat_x303.ma"
+          ]
+        },
+        {
+          "id": "form.gat_x303.ma",
+          "display_name": "MA 形态",
+          "type": "transform_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.ma_main_cannon",
+              "display_name": "MA 主炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.beam_scatter_gun",
+              "display_name": "散射光束枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.grapple_claw",
+              "display_name": "抓取爪"
+            }
+          ],
+          "abilities": [
+            "ability.sp.ma_strafe_run"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.gat_x303.ms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis.gat_x370",
+      "model_number": "GAT-X370",
+      "display_name": "强夺",
+      "description": "可变形为高速 MA 的重量级机体，近战抓取与突袭并重。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.omni",
+      "faction_playable": "faction.omni",
+      "tags": [
+        "g_project",
+        "transform",
+        "phase_shift",
+        "heavy"
+      ],
+      "power_budget": 1080,
+      "base_stats": {
+        "hp": 1150,
+        "en": 130,
+        "mobility": 0.7,
+        "defense": 0.7,
+        "size_class": "medium"
+      },
+      "default_form": "form.gat_x370.ms",
+      "forms": [
+        {
+          "id": "form.gat_x370.ms",
+          "display_name": "MS 形态",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.bazooka_ballistic",
+              "display_name": "实弹火箭筒"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.grapple_claw",
+              "display_name": "抓取爪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.gat_x370.ma"
+          ]
+        },
+        {
+          "id": "form.gat_x370.ma",
+          "display_name": "MA 形态",
+          "type": "transform_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.ma_main_cannon",
+              "display_name": "MA 主炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.gatling_pod",
+              "display_name": "加特林荚舱"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.grapple_claw",
+              "display_name": "抓取爪"
+            }
+          ],
+          "abilities": [
+            "ability.sp.ma_strafe_run"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.gat_x370.ms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis.mbf_02",
+      "model_number": "MBF-02",
+      "display_name": "强袭嫣红",
+      "description": "精简换装机，共用 Striker 型背包槽，仅保留空装与剑装。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.orb",
+      "faction_playable": "faction.three_ships",
+      "tags": [
+        "swap_pack",
+        "phase_shift"
+      ],
+      "power_budget": 1040,
+      "base_stats": {
+        "hp": 980,
+        "en": 120,
+        "mobility": 0.73,
+        "defense": 0.64,
+        "size_class": "medium"
+      },
+      "default_form": "form.mbf_02.aile",
+      "forms": [
+        {
+          "id": "form.mbf_02.aile",
+          "display_name": "空装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.assault_dash"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        },
+        {
+          "id": "form.mbf_02.sword",
+          "display_name": "剑装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.anti_ship_sword",
+              "display_name": "对舰刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.rocket_anchor",
+              "display_name": "火箭锚"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.mbf_m1",
+      "model_number": "MBF-M1",
+      "display_name": "M1 异端",
+      "description": "奥布量产机，偏防御与团队支援定位。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.orb",
+      "faction_playable": "faction.orb",
+      "tags": [
+        "mass_produced",
+        "support"
+      ],
+      "power_budget": 990,
+      "base_stats": {
+        "hp": 920,
+        "en": 100,
+        "mobility": 0.66,
+        "defense": 0.63,
+        "size_class": "medium"
+      },
+      "default_form": "form.mbf_m1.standard",
+      "forms": [
+        {
+          "id": "form.mbf_m1.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_compact",
+              "display_name": "轻型光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.support_barrage"
+          ],
+          "mode_overlays": [],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.mbf_p02",
+      "model_number": "MBF-P02",
+      "display_name": "红色异端",
+      "description": "近战特化试作机，长刀二刀流验证长连段与硬直抗性。",
+      "series": "astray",
+      "era": "ce71",
+      "faction_production": "faction.orb",
+      "faction_playable": "faction.mercenary",
+      "tags": [
+        "melee",
+        "prototype"
+      ],
+      "power_budget": 1030,
+      "base_stats": {
+        "hp": 960,
+        "en": 115,
+        "mobility": 0.74,
+        "defense": 0.62,
+        "size_class": "medium"
+      },
+      "default_form": "form.mbf_p02.standard",
+      "forms": [
+        {
+          "id": "form.mbf_p02.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_compact",
+              "display_name": "轻型光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.long_blade_pair",
+              "display_name": "双长刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.gatling_pod",
+              "display_name": "加特林荚舱"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush",
+            "ability.passive.thruster_tuning"
+          ],
+          "mode_overlays": [],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_1000",
+      "model_number": "ZGMF-1000",
+      "display_name": "扎古勇士",
+      "description": "可更换背包的量产机，战士型主打火力，幻影型主打隐蔽突袭。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "mass_produced",
+        "swap_pack"
+      ],
+      "power_budget": 1050,
+      "base_stats": {
+        "hp": 1080,
+        "en": 120,
+        "mobility": 0.68,
+        "defense": 0.7,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_1000.warrior",
+      "forms": [
+        {
+          "id": "form.zgmf_1000.warrior",
+          "display_name": "战士型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.machine_gun_light",
+              "display_name": "轻型机枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_javelin",
+              "display_name": "光束标枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.missile_pod",
+              "display_name": "导弹发射巢"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush"
+          ],
+          "mode_overlays": [],
+          "transform_targets": []
+        },
+        {
+          "id": "form.zgmf_1000.phantom",
+          "display_name": "幻影型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_compact",
+              "display_name": "轻型光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.gatling_pod",
+              "display_name": "加特林荚舱"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "special",
+              "id": "weapon.smoke_dispenser",
+              "display_name": "烟雾发射器"
+            }
+          ],
+          "abilities": [
+            "ability.sp.stealth_ambush"
+          ],
+          "mode_overlays": [
+            "overlay.phantom_camouflage"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_1017",
+      "model_number": "ZGMF-1017",
+      "display_name": "金恩",
+      "description": "初代量产机，作为杂兵与相对强度下限锚点。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "mass_produced"
+      ],
+      "power_budget": 940,
+      "base_stats": {
+        "hp": 880,
+        "en": 90,
+        "mobility": 0.62,
+        "defense": 0.58,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_1017.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_1017.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.machine_gun_light",
+              "display_name": "轻型机枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.missile_pod",
+              "display_name": "导弹发射巢"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.combat_knife",
+              "display_name": "战斗短刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [],
+          "mode_overlays": [],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_600",
+      "model_number": "ZGMF-600",
+      "display_name": "盖茨",
+      "description": "二代量产主力机，全项目相对强度基准（power_budget 1000）。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "mass_produced"
+      ],
+      "power_budget": 1000,
+      "base_stats": {
+        "hp": 1000,
+        "en": 110,
+        "mobility": 0.7,
+        "defense": 0.66,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_600.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_600.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.rocket_anchor",
+              "display_name": "火箭锚"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.passive.thruster_tuning"
+          ],
+          "mode_overlays": [],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x09a",
+      "model_number": "ZGMF-X09A",
+      "display_name": "正义",
+      "description": "可与大型合体装备结合的高性能机，合体后转为火力平台。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.three_ships",
+      "tags": [
+        "transform",
+        "phase_shift",
+        "seed_mode",
+        "prototype"
+      ],
+      "power_budget": 1150,
+      "base_stats": {
+        "hp": 1120,
+        "en": 165,
+        "mobility": 0.8,
+        "defense": 0.72,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x09a.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_x09a.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_twin",
+              "display_name": "双持光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.beam_barrage"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.seed_mode"
+          ],
+          "transform_targets": [
+            "form.zgmf_x09a.meteor"
+          ]
+        },
+        {
+          "id": "form.zgmf_x09a.meteor",
+          "display_name": "合体形态",
+          "type": "transform_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_cannon_array",
+              "display_name": "多联装光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.missile_pod",
+              "display_name": "导弹发射巢"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_javelin",
+              "display_name": "光束标枪"
+            },
+            {
+              "slot": "special",
+              "id": "weapon.remote_weapon_pod",
+              "display_name": "远隔操作兵装"
+            }
+          ],
+          "abilities": [
+            "ability.sp.meteor_saturation"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.zgmf_x09a.standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x10a",
+      "model_number": "ZGMF-X10A",
+      "display_name": "自由",
+      "description": "多目标齐射与觉醒模式叠加的高性能机，验证多重锁定管线。",
+      "series": "seed",
+      "era": "ce71",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.three_ships",
+      "tags": [
+        "phase_shift",
+        "seed_mode",
+        "prototype"
+      ],
+      "power_budget": 1150,
+      "base_stats": {
+        "hp": 1150,
+        "en": 170,
+        "mobility": 0.82,
+        "defense": 0.72,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x10a.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_x10a.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "main",
+              "id": "weapon.beam_cannon_array",
+              "display_name": "多联装光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.railgun_shoulder",
+              "display_name": "肩部电磁炮"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_twin",
+              "display_name": "双持光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.full_burst_multi_lock"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.seed_mode"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x20a",
+      "model_number": "ZGMF-X20A",
+      "display_name": "无限正义",
+      "description": "综合性能机，可分离飞行装备独立作战；首发后期解锁目标。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.three_ships",
+      "tags": [
+        "transform",
+        "phase_shift",
+        "seed_mode",
+        "prototype"
+      ],
+      "power_budget": 1180,
+      "base_stats": {
+        "hp": 1180,
+        "en": 175,
+        "mobility": 0.86,
+        "defense": 0.74,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x20a.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_x20a.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_twin",
+              "display_name": "双持光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.high_mobility_slash"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.seed_mode"
+          ],
+          "transform_targets": [
+            "form.zgmf_x20a.fatum"
+          ]
+        },
+        {
+          "id": "form.zgmf_x20a.fatum",
+          "display_name": "分离飞行装备形态",
+          "type": "transform_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.ma_main_cannon",
+              "display_name": "MA 主炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.beam_scatter_gun",
+              "display_name": "散射光束枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.grapple_claw",
+              "display_name": "抓取爪"
+            }
+          ],
+          "abilities": [
+            "ability.sp.ma_strafe_run"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.zgmf_x20a.standard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x24s",
+      "model_number": "ZGMF-X24S",
+      "display_name": "混沌",
+      "description": "搭载远隔操作兵装的可变形机，MA 形态制空能力强。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "transform",
+        "phase_shift",
+        "prototype"
+      ],
+      "power_budget": 1080,
+      "base_stats": {
+        "hp": 1050,
+        "en": 140,
+        "mobility": 0.76,
+        "defense": 0.65,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x24s.ms",
+      "forms": [
+        {
+          "id": "form.zgmf_x24s.ms",
+          "display_name": "MS 形态",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "special",
+              "id": "weapon.remote_weapon_pod",
+              "display_name": "远隔操作兵装"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.beam_barrage"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.zgmf_x24s.ma"
+          ]
+        },
+        {
+          "id": "form.zgmf_x24s.ma",
+          "display_name": "MA 形态",
+          "type": "transform_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.ma_main_cannon",
+              "display_name": "MA 主炮"
+            },
+            {
+              "slot": "special",
+              "id": "weapon.remote_weapon_pod",
+              "display_name": "远隔操作兵装"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.grapple_claw",
+              "display_name": "抓取爪"
+            }
+          ],
+          "abilities": [
+            "ability.sp.ma_strafe_run"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": [
+            "form.zgmf_x24s.ms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x42s",
+      "model_number": "ZGMF-X42S",
+      "display_name": "命运",
+      "description": "高机动 Boss 级机体，具备残像与光翼类表现（表现为原创实现）。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "phase_shift",
+        "boss",
+        "prototype"
+      ],
+      "power_budget": 1180,
+      "base_stats": {
+        "hp": 1200,
+        "en": 180,
+        "mobility": 0.88,
+        "defense": 0.74,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x42s.standard",
+      "forms": [
+        {
+          "id": "form.zgmf_x42s.standard",
+          "display_name": "标准型",
+          "type": "base_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.palm_beam_cannon",
+              "display_name": "掌部光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.anti_ship_sword",
+              "display_name": "对舰刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.high_mobility_slash",
+            "ability.passive.thruster_tuning"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor",
+            "overlay.wings_of_light"
+          ],
+          "transform_targets": []
+        }
+      ]
+    },
+    {
+      "id": "chassis.zgmf_x56s",
+      "model_number": "ZGMF-X56S",
+      "display_name": "脉冲",
+      "description": "三形态换装试作机，核心分离机制在 M0 简化为形态切换演出。",
+      "series": "seed_destiny",
+      "era": "ce73",
+      "faction_production": "faction.zaft",
+      "faction_playable": "faction.zaft",
+      "tags": [
+        "swap_pack",
+        "core_splitter",
+        "phase_shift",
+        "prototype"
+      ],
+      "power_budget": 1060,
+      "base_stats": {
+        "hp": 1000,
+        "en": 135,
+        "mobility": 0.75,
+        "defense": 0.66,
+        "size_class": "medium"
+      },
+      "default_form": "form.zgmf_x56s.force",
+      "forms": [
+        {
+          "id": "form.zgmf_x56s.force",
+          "display_name": "空战型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_rifle_standard",
+              "display_name": "标准光束步枪"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.beam_saber_standard",
+              "display_name": "光束军刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.head_vulcan",
+              "display_name": "头部火神炮"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.assault_dash"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        },
+        {
+          "id": "form.zgmf_x56s.sword",
+          "display_name": "剑装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_boomerang",
+              "display_name": "光束回旋镖"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.anti_ship_sword",
+              "display_name": "对舰刀"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.rocket_anchor",
+              "display_name": "火箭锚"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.blade_rush"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        },
+        {
+          "id": "form.zgmf_x56s.blast",
+          "display_name": "炮装型",
+          "type": "equipment_form",
+          "weapons": [
+            {
+              "slot": "main",
+              "id": "weapon.beam_cannon_array",
+              "display_name": "多联装光束炮"
+            },
+            {
+              "slot": "sub",
+              "id": "weapon.missile_pod",
+              "display_name": "导弹发射巢"
+            },
+            {
+              "slot": "melee",
+              "id": "weapon.combat_knife",
+              "display_name": "战斗短刀"
+            },
+            {
+              "slot": "shield",
+              "id": "weapon.shield_beam_projector",
+              "display_name": "光束防御盾"
+            }
+          ],
+          "abilities": [
+            "ability.sp.siege_bombardment"
+          ],
+          "mode_overlays": [
+            "overlay.phase_shift_armor"
+          ],
+          "transform_targets": []
+        }
+      ]
+    }
+  ]
+}

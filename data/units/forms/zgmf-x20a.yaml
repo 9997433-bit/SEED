@@ -1,0 +1,63 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_x20a
+
+forms:
+  - id: form.zgmf_x20a.standard
+    display_name_key: loc.form.infinite_justice_standard
+    type: base_form
+    stat_modifiers:
+      mobility: 0.08
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: sub
+        weapon_id: weapon.beam_boomerang
+      - slot: melee
+        weapon_id: weapon.beam_saber_twin
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.high_mobility_slash]
+    transform_graph:
+      - to: form.zgmf_x20a.fatum
+        trigger: manual
+        duration_sec: 2.5
+        one_way: false
+        constraints:
+          forbid_states: [grappled, downed]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+      - overlay_id: overlay.seed_mode
+        requires:
+          pilot_trait: trait.seed_awakening
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_x20a.fatum
+    display_name_key: loc.form.infinite_justice_fatum
+    type: transform_form
+    size_class_override: large
+    stat_modifiers:
+      mobility: 0.20
+      defense: -0.04
+      firepower: 0.10
+    weapons:
+      - slot: main
+        weapon_id: weapon.ma_main_cannon
+      - slot: sub
+        weapon_id: weapon.beam_scatter_gun
+      - slot: melee
+        weapon_id: weapon.grapple_claw
+    abilities: [ability.sp.ma_strafe_run]
+    transform_graph:
+      - to: form.zgmf_x20a.standard
+        trigger: manual
+        duration_sec: 2.0
+        one_way: false
+        constraints:
+          forbid_states: [grappled]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_ma
+      placeholder: true

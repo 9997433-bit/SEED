@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.mbf_02
+
+forms:
+  - id: form.mbf_02.aile
+    display_name_key: loc.form.strike_rouge_aile
+    type: equipment_form
+    stat_modifiers:
+      mobility: 0.08
+      defense: -0.02
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: sub
+        weapon_id: weapon.head_vulcan
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.assault_dash]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.mbf_02.sword
+    display_name_key: loc.form.strike_rouge_sword
+    type: equipment_form
+    stat_modifiers:
+      mobility: -0.05
+      defense: 0.05
+      firepower: 0.08
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_boomerang
+      - slot: melee
+        weapon_id: weapon.anti_ship_sword
+      - slot: sub
+        weapon_id: weapon.rocket_anchor
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.blade_rush]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

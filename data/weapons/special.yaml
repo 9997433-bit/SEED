@@ -1,0 +1,74 @@
+# 防御与特殊系占位武装（盾、MA 专用主炮、远隔操作兵装等）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+library: special
+
+weapons:
+  - id: weapon.shield_beam_projector
+    display_name_key: loc.weapon.shield_beam_projector
+    category: special
+    slot_types: [shield]
+    damage_class: light
+    range_class: short
+    tags: [guard]
+    notes: "标准 ガード 盾；可移动格挡。"
+    asset_binding:
+      model_id: placeholder.weapon.shield
+      placeholder: true
+
+  - id: weapon.deflection_shield_panel
+    display_name_key: loc.weapon.deflection_shield_panel
+    category: special
+    slot_types: [shield]
+    damage_class: light
+    range_class: short
+    tags: [guard, directional_guard]
+    notes: "方向性偏转面板；配合 overlay.directional_deflector。"
+    asset_binding:
+      model_id: placeholder.weapon.shield_panel
+      placeholder: true
+
+  - id: weapon.ma_main_cannon
+    display_name_key: loc.weapon.ma_main_cannon
+    category: special
+    slot_types: [main]
+    damage_class: siege
+    range_class: long
+    magazine: 3
+    total_ammo: 15
+    reload_sec: 4.5
+    tags: [ma_only, chargeable]
+    notes: "仅 MA 形态可用的大出力主炮。"
+    asset_binding:
+      model_id: placeholder.weapon.ma_cannon
+      placeholder: true
+
+  - id: weapon.remote_weapon_pod
+    display_name_key: loc.weapon.remote_weapon_pod
+    category: special
+    slot_types: [special]
+    damage_class: medium
+    range_class: mid
+    magazine: 4
+    total_ammo: 20
+    reload_sec: 5.0
+    lock_count: 4
+    tags: [multi_lock]
+    notes: "远隔操作浮游兵装占位实现。"
+    asset_binding:
+      model_id: placeholder.weapon.pod
+      placeholder: true
+
+  - id: weapon.smoke_dispenser
+    display_name_key: loc.weapon.smoke_dispenser
+    category: special
+    slot_types: [special]
+    damage_class: light
+    range_class: short
+    magazine: 2
+    total_ammo: 6
+    reload_sec: 6.0
+    notes: "烟雾弹：打断敌方锁定，验证锁敌中断规则。"
+    asset_binding:
+      model_id: placeholder.weapon.smoke
+      placeholder: true

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "seed-remake:data/schema/locale.schema.json",
+  "title": "Locale",
+  "description": "本地化条目表。base: true 的语言必须覆盖全部被引用的 loc key。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "locale", "entries"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}(_[A-Z]{2})?$" },
+    "base": { "type": "boolean" },
+    "entries": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^loc\\.[a-z0-9_.]+$": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

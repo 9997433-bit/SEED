@@ -1,0 +1,43 @@
+# 首发 #17 M1 异端 —— 奥布量产代表，团队支援与防御定位。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.mbf_m1
+model_number: MBF-M1
+display_name_key: loc.unit.m1_astray
+description_key: loc.unit.m1_astray.desc
+series: seed
+era: ce71
+faction_production: faction.orb
+faction_playable: faction.orb
+tags: [mass_produced, support]
+
+power_budget: 990
+base_stats:
+  hp: 920
+  en: 100
+  mobility: 0.66
+  defense: 0.63
+  size_class: medium
+
+forms:
+  - form.mbf_m1.standard
+forms_ref: units/forms/mbf-m1.yaml
+default_form: form.mbf_m1.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.generic_rookie
+  - pilot.generic_veteran
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #17（首发名单）"
+  - "定位：奥布量产/防御模板"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

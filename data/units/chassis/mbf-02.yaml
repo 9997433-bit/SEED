@@ -1,0 +1,48 @@
+# 首发 #16 强袭嫣红 —— 精简换装（空装 / 剑装），验证少形态换装分支。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.mbf_02
+model_number: MBF-02
+display_name_key: loc.unit.strike_rouge
+description_key: loc.unit.strike_rouge.desc
+series: seed
+era: ce71
+faction_production: faction.orb
+faction_playable: faction.three_ships
+tags: [swap_pack, phase_shift]
+
+power_budget: 1040
+base_stats:
+  hp: 980
+  en: 120
+  mobility: 0.73
+  defense: 0.64
+  size_class: medium
+
+forms:
+  - form.mbf_02.aile
+  - form.mbf_02.sword
+forms_ref: units/forms/mbf-02.yaml
+default_form: form.mbf_02.aile
+
+form_switch_policy:
+  type: mid_battle_swap
+  cooldown_sec: 8.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 0.8
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.avatar_partner
+  - pilot.generic_veteran
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #16（首发名单）"
+  - "机制标签：精简换装（复用 GAT-X105 的 Striker 型背包槽）"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

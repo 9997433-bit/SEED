@@ -1,0 +1,58 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_x24s
+
+forms:
+  - id: form.zgmf_x24s.ms
+    display_name_key: loc.form.chaos_ms
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: special
+        weapon_id: weapon.remote_weapon_pod
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.beam_barrage]
+    transform_graph:
+      - to: form.zgmf_x24s.ma
+        trigger: manual
+        duration_sec: 1.8
+        one_way: false
+        constraints:
+          forbid_states: [grappled, downed]
+          min_en_ratio: 0.1
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_x24s.ma
+    display_name_key: loc.form.chaos_ma
+    type: transform_form
+    size_class_override: large
+    stat_modifiers:
+      mobility: 0.18
+      defense: -0.05
+    weapons:
+      - slot: main
+        weapon_id: weapon.ma_main_cannon
+      - slot: special
+        weapon_id: weapon.remote_weapon_pod
+      - slot: melee
+        weapon_id: weapon.grapple_claw
+    abilities: [ability.sp.ma_strafe_run]
+    transform_graph:
+      - to: form.zgmf_x24s.ms
+        trigger: manual
+        duration_sec: 1.8
+        one_way: false
+        constraints:
+          forbid_states: [grappled, downed]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_ma
+      placeholder: true

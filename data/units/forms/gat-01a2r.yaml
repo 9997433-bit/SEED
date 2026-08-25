@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.gat_01a2r
+
+forms:
+  - id: form.gat_01a2r.standard
+    display_name_key: loc.form.dagger_l_standard
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: sub
+        weapon_id: weapon.head_vulcan
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.passive.thruster_tuning]
+    transform_graph: []
+    mode_overlays: []
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

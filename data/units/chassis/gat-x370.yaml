@@ -1,0 +1,48 @@
+# 首发 #5 强夺 —— MS↔MA 变形，验证大型变形碰撞与武装差分。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.gat_x370
+model_number: GAT-X370
+display_name_key: loc.unit.raider
+description_key: loc.unit.raider.desc
+series: seed
+era: ce71
+faction_production: faction.omni
+faction_playable: faction.omni
+tags: [g_project, transform, phase_shift, heavy]
+
+power_budget: 1080
+base_stats:
+  hp: 1150
+  en: 130
+  mobility: 0.70
+  defense: 0.70
+  size_class: medium
+
+forms:
+  - form.gat_x370.ms
+  - form.gat_x370.ma
+forms_ref: units/forms/gat-x370.yaml
+default_form: form.gat_x370.ms
+
+form_switch_policy:
+  type: transform_only
+  cooldown_sec: 2.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 1.0
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.generic_veteran
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #5（首发名单）"
+  - "对照用例 B-03 / M 系：变形链可玩性"
+
+asset_binding:
+  model_id: placeholder.mech.block_heavy
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

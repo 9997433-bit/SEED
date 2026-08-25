@@ -1,0 +1,44 @@
+# 首发 #2 短剑 L —— 量产基准机，教学与杂兵模板。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.gat_01a2r
+model_number: GAT-01A2R
+display_name_key: loc.unit.dagger_l
+description_key: loc.unit.dagger_l.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.omni
+faction_playable: faction.omni
+tags: [mass_produced]
+
+power_budget: 1000
+base_stats:
+  hp: 950
+  en: 100
+  mobility: 0.68
+  defense: 0.62
+  size_class: medium
+
+forms:
+  - form.gat_01a2r.standard
+forms_ref: units/forms/gat-01a2r.yaml
+default_form: form.gat_01a2r.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_rookie
+  - pilot.generic_veteran
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #2（首发名单）"
+  - "对照用例 M-03：量产机基线参数锚点"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

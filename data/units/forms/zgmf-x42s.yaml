@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_x42s
+
+forms:
+  - id: form.zgmf_x42s.standard
+    display_name_key: loc.form.destiny_standard
+    type: base_form
+    stat_modifiers:
+      mobility: 0.10
+      boost_recovery: 0.12
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: sub
+        weapon_id: weapon.palm_beam_cannon
+      - slot: sub
+        weapon_id: weapon.beam_boomerang
+      - slot: melee
+        weapon_id: weapon.anti_ship_sword
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities:
+      - ability.sp.high_mobility_slash
+      - ability.passive.thruster_tuning
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+      - overlay_id: overlay.wings_of_light
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

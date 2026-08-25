@@ -1,0 +1,49 @@
+# 首发 #10 脉冲 —— 换装 + 核心战机；M0 将核心分离简化为形态切换演出。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x56s
+model_number: ZGMF-X56S
+display_name_key: loc.unit.impulse
+description_key: loc.unit.impulse.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [swap_pack, core_splitter, phase_shift, prototype]
+
+power_budget: 1060
+base_stats:
+  hp: 1000
+  en: 135
+  mobility: 0.75
+  defense: 0.66
+  size_class: medium
+
+forms:
+  - form.zgmf_x56s.force
+  - form.zgmf_x56s.sword
+  - form.zgmf_x56s.blast
+forms_ref: units/forms/zgmf-x56s.yaml
+default_form: form.zgmf_x56s.force
+
+form_switch_policy:
+  type: mid_battle_swap
+  cooldown_sec: 6.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 0.7
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #10（首发名单）"
+  - "3.7 Should：核心战机分离可简化为视觉演出 + 形态切换"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

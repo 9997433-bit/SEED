@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_1017
+
+forms:
+  - id: form.zgmf_1017.standard
+    display_name_key: loc.form.ginn_standard
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.machine_gun_light
+      - slot: sub
+        weapon_id: weapon.missile_pod
+      - slot: melee
+        weapon_id: weapon.combat_knife
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: []
+    transform_graph: []
+    mode_overlays: []
+    asset_binding:
+      model_id: placeholder.mech.block_light
+      placeholder: true

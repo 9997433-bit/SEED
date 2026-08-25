@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.gat_x131
+
+forms:
+  - id: form.gat_x131.standard
+    display_name_key: loc.form.calamity_standard
+    type: base_form
+    stat_modifiers:
+      firepower: 0.15
+      mobility: -0.05
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_cannon_heavy
+      - slot: sub
+        weapon_id: weapon.railgun_shoulder
+      - slot: sub
+        weapon_id: weapon.gatling_pod
+      - slot: melee
+        weapon_id: weapon.combat_knife
+    abilities:
+      - ability.sp.siege_bombardment
+      - ability.passive.reactive_plating
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+      - overlay_id: overlay.heavy_siege_stance
+    asset_binding:
+      model_id: placeholder.mech.block_heavy
+      placeholder: true

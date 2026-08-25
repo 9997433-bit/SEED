@@ -1,0 +1,37 @@
+; Godot 工程配置 —— 机动战士启发：命运激斗（M0 骨架）
+;
+; M0 范围：可运行的占位 3D 场景 + 标题 UI + 数据构建产物载入验证。
+; 不含战斗玩法；不含任何官方资产。
+
+config_version=5
+
+[application]
+
+config/name="机动战士启发：命运激斗"
+config/description="非官方粉丝项目（SEED 启发）。M0 骨架：原创方块占位机体 + 标题 UI + data/ 数据管线接入。"
+config/version="0.0.1-m0"
+run/main_scene="res://scenes/bridge/title_screen.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Settings="*res://scripts/autoload/settings.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[internationalization]
+
+locale/fallback="zh_CN"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=1
