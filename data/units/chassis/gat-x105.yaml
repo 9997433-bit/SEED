@@ -1,0 +1,50 @@
+# 首发 #1 强袭 —— 全项目换装基准（空装 / 剑装 / 炮装）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.gat_x105
+model_number: GAT-X105
+display_name_key: loc.unit.strike
+description_key: loc.unit.strike.desc
+series: seed
+era: ce71
+faction_production: faction.omni
+faction_playable: faction.three_ships
+tags: [g_project, swap_pack, phase_shift]
+
+power_budget: 1050
+base_stats:
+  hp: 1000
+  en: 120
+  mobility: 0.72
+  defense: 0.65
+  size_class: medium
+
+forms:
+  - form.gat_x105.aile
+  - form.gat_x105.sword
+  - form.gat_x105.launcher
+forms_ref: units/forms/gat-x105.yaml
+default_form: form.gat_x105.aile
+
+form_switch_policy:
+  type: mid_battle_swap
+  cooldown_sec: 8.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 0.8
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.avatar_partner
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #1（首发名单）"
+  - "机制标签：战内换装三形态（公开作品设定，非官方数值）"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

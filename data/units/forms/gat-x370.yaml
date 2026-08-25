@@ -1,0 +1,56 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.gat_x370
+
+forms:
+  - id: form.gat_x370.ms
+    display_name_key: loc.form.raider_ms
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.bazooka_ballistic
+      - slot: melee
+        weapon_id: weapon.grapple_claw
+      - slot: sub
+        weapon_id: weapon.head_vulcan
+    abilities: [ability.sp.blade_rush]
+    transform_graph:
+      - to: form.gat_x370.ma
+        trigger: manual
+        duration_sec: 2.0
+        one_way: false
+        constraints:
+          forbid_states: [grappled, downed]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_heavy
+      placeholder: true
+
+  - id: form.gat_x370.ma
+    display_name_key: loc.form.raider_ma
+    type: transform_form
+    size_class_override: large
+    stat_modifiers:
+      mobility: 0.15
+      defense: 0.05
+      firepower: 0.10
+    weapons:
+      - slot: main
+        weapon_id: weapon.ma_main_cannon
+      - slot: sub
+        weapon_id: weapon.gatling_pod
+      - slot: melee
+        weapon_id: weapon.grapple_claw
+    abilities: [ability.sp.ma_strafe_run]
+    transform_graph:
+      - to: form.gat_x370.ms
+        trigger: manual
+        duration_sec: 2.0
+        one_way: false
+        constraints:
+          forbid_states: [grappled, downed]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_ma
+      placeholder: true

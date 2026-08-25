@@ -1,0 +1,48 @@
+# 首发 #6 圣盾 —— MS↔MA 变形；G 计划机体，剧情上由 ZAFT 使用。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.gat_x303
+model_number: GAT-X303
+display_name_key: loc.unit.aegis
+description_key: loc.unit.aegis.desc
+series: seed
+era: ce71
+faction_production: faction.omni
+faction_playable: faction.zaft
+tags: [g_project, transform, phase_shift]
+
+power_budget: 1080
+base_stats:
+  hp: 1050
+  en: 130
+  mobility: 0.74
+  defense: 0.68
+  size_class: medium
+
+forms:
+  - form.gat_x303.ms
+  - form.gat_x303.ma
+forms_ref: units/forms/gat-x303.yaml
+default_form: form.gat_x303.ms
+
+form_switch_policy:
+  type: transform_only
+  cooldown_sec: 2.5
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 1.0
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.avatar_partner
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #6（首发名单）"
+  - "基准用例 12：圣盾或强夺 MS↔MA 变形"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

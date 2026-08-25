@@ -1,0 +1,43 @@
+# 首发 #8 金恩 —— 量产杂兵代表，生存模式基础敌人。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_1017
+model_number: ZGMF-1017
+display_name_key: loc.unit.ginn
+description_key: loc.unit.ginn.desc
+series: seed
+era: ce71
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [mass_produced]
+
+power_budget: 940
+base_stats:
+  hp: 880
+  en: 90
+  mobility: 0.62
+  defense: 0.58
+  size_class: medium
+
+forms:
+  - form.zgmf_1017.standard
+forms_ref: units/forms/zgmf-1017.yaml
+default_form: form.zgmf_1017.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.generic_rookie
+  - pilot.generic_veteran
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #8（首发名单）"
+  - "基准用例 15：金恩杂兵 vs 王牌机的相对强度锚点"
+
+asset_binding:
+  model_id: placeholder.mech.block_light
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

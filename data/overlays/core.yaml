@@ -1,0 +1,71 @@
+# 装甲 / 模式叠加层：同一 mesh 骨骼下的参数与规则覆写（docs/03-units-and-data.md 3.3.2 ③）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+overlays:
+  - id: overlay.phase_shift_armor
+    display_name_key: loc.overlay.phase_shift_armor
+    kind: armor
+    activation: always_on
+    stat_modifiers:
+      defense: 0.12
+    rules: [ballistic_immunity_pool]
+    notes: "实弹免疫池耗尽后进入 Down 状态（机体灰化）；对照用例 B-05。"
+
+  - id: overlay.directional_deflector
+    display_name_key: loc.overlay.directional_deflector
+    kind: armor
+    activation: manual
+    duration_sec: 8
+    cooldown_sec: 12
+    stat_modifiers:
+      defense: 0.25
+      mobility: -0.15
+    rules: [directional_damage_reduction, beam_reflection]
+    notes: "方向性减伤与光束偏转；验证方向装甲逻辑。"
+
+  - id: overlay.heavy_siege_stance
+    display_name_key: loc.overlay.heavy_siege_stance
+    kind: stance
+    activation: manual
+    duration_sec: 10
+    cooldown_sec: 10
+    stat_modifiers:
+      firepower: 0.25
+      defense: 0.10
+      mobility: -0.35
+    rules: [movement_locked_while_firing]
+
+  - id: overlay.seed_mode
+    display_name_key: loc.overlay.seed_mode
+    kind: awakening
+    activation: conditional
+    duration_sec: 20
+    cooldown_sec: 60
+    requires_trait: trait.seed_awakening
+    stat_modifiers:
+      mobility: 0.15
+      firepower: 0.18
+      boost_recovery: 0.20
+
+  - id: overlay.wings_of_light
+    display_name_key: loc.overlay.wings_of_light
+    kind: awakening
+    activation: manual
+    duration_sec: 15
+    cooldown_sec: 45
+    stat_modifiers:
+      mobility: 0.22
+      boost_recovery: 0.25
+    rules: [afterimage_on_dash, downed_state_visual_only]
+    notes: "表现可原创；对照用例 M-04 只要求触发规则一致。"
+
+  - id: overlay.phantom_camouflage
+    display_name_key: loc.overlay.phantom_camouflage
+    kind: stealth
+    activation: manual
+    duration_sec: 12
+    cooldown_sec: 30
+    stat_modifiers:
+      defense: 0.05
+    rules: [lock_on_penalty_to_enemy]

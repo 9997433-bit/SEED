@@ -1,0 +1,48 @@
+# 首发 #13 正义 —— 本体 + 大型合体形态（流星装备），验证独立 form 的合体链。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x09a
+model_number: ZGMF-X09A
+display_name_key: loc.unit.justice
+description_key: loc.unit.justice.desc
+series: seed
+era: ce71
+faction_production: faction.zaft
+faction_playable: faction.three_ships
+tags: [transform, phase_shift, seed_mode, prototype]
+
+power_budget: 1150
+base_stats:
+  hp: 1120
+  en: 165
+  mobility: 0.80
+  defense: 0.72
+  size_class: medium
+
+forms:
+  - form.zgmf_x09a.standard
+  - form.zgmf_x09a.meteor
+forms_ref: units/forms/zgmf-x09a.yaml
+default_form: form.zgmf_x09a.standard
+
+form_switch_policy:
+  type: transform_only
+  cooldown_sec: 3.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 1.0
+  allowed_states: [space]
+
+compatible_pilots:
+  - pilot.avatar_partner
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #13（首发名单）"
+  - "3.8.1：流星合体消耗 power_budget +150"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

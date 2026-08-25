@@ -1,0 +1,87 @@
+# 格闘系占位武装。melee_combo 表示基础连段段数，チャージ格闘 另行由技能表达。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+library: melee
+
+weapons:
+  - id: weapon.beam_saber_standard
+    display_name_key: loc.weapon.beam_saber_standard
+    category: melee
+    slot_types: [melee]
+    damage_class: medium
+    range_class: melee
+    melee_combo: 3
+    asset_binding:
+      model_id: placeholder.weapon.saber
+      vfx_id: placeholder.vfx.beam_blade
+      placeholder: true
+
+  - id: weapon.beam_saber_twin
+    display_name_key: loc.weapon.beam_saber_twin
+    category: melee
+    slot_types: [melee]
+    damage_class: medium
+    range_class: melee
+    melee_combo: 4
+    asset_binding:
+      model_id: placeholder.weapon.saber_twin
+      placeholder: true
+
+  - id: weapon.anti_ship_sword
+    display_name_key: loc.weapon.anti_ship_sword
+    category: melee
+    slot_types: [melee]
+    damage_class: heavy
+    range_class: melee
+    melee_combo: 3
+    tags: [anti_armor]
+    asset_binding:
+      model_id: placeholder.weapon.big_sword
+      placeholder: true
+
+  - id: weapon.combat_knife
+    display_name_key: loc.weapon.combat_knife
+    category: melee
+    slot_types: [melee]
+    damage_class: light
+    range_class: melee
+    melee_combo: 3
+    asset_binding:
+      model_id: placeholder.weapon.knife
+      placeholder: true
+
+  - id: weapon.beam_javelin
+    display_name_key: loc.weapon.beam_javelin
+    category: melee
+    slot_types: [melee]
+    damage_class: medium
+    range_class: melee
+    melee_combo: 3
+    asset_binding:
+      model_id: placeholder.weapon.javelin
+      placeholder: true
+
+  - id: weapon.grapple_claw
+    display_name_key: loc.weapon.grapple_claw
+    category: melee
+    slot_types: [melee]
+    damage_class: medium
+    range_class: melee
+    melee_combo: 2
+    tags: [grapple]
+    notes: "MA 形态可用的抓取型格闘。"
+    asset_binding:
+      model_id: placeholder.weapon.claw
+      placeholder: true
+
+  - id: weapon.long_blade_pair
+    display_name_key: loc.weapon.long_blade_pair
+    category: melee
+    slot_types: [melee]
+    damage_class: medium
+    range_class: melee
+    melee_combo: 5
+    notes: "近战特化机体用长刀二刀流；验证长连段与硬直抗性。"
+    asset_binding:
+      model_id: placeholder.weapon.long_blade
+      placeholder: true

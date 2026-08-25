@@ -1,0 +1,65 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_x09a
+
+forms:
+  - id: form.zgmf_x09a.standard
+    display_name_key: loc.form.justice_standard
+    type: base_form
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: sub
+        weapon_id: weapon.beam_boomerang
+      - slot: melee
+        weapon_id: weapon.beam_saber_twin
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.beam_barrage]
+    transform_graph:
+      - to: form.zgmf_x09a.meteor
+        trigger: manual
+        duration_sec: 3.0
+        one_way: false
+        constraints:
+          require_states: [space]
+          forbid_states: [grappled, downed]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+      - overlay_id: overlay.seed_mode
+        requires:
+          pilot_trait: trait.seed_awakening
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_x09a.meteor
+    display_name_key: loc.form.justice_meteor
+    type: transform_form
+    size_class_override: huge
+    stat_modifiers:
+      hp: 0.35
+      firepower: 0.35
+      mobility: -0.10
+      defense: 0.05
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_cannon_array
+      - slot: sub
+        weapon_id: weapon.missile_pod
+      - slot: melee
+        weapon_id: weapon.beam_javelin
+      - slot: special
+        weapon_id: weapon.remote_weapon_pod
+    abilities: [ability.sp.meteor_saturation]
+    transform_graph:
+      - to: form.zgmf_x09a.standard
+        trigger: manual
+        duration_sec: 2.0
+        one_way: false
+        constraints:
+          forbid_states: [grappled]
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_meteor
+      placeholder: true

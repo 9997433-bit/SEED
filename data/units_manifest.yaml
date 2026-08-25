@@ -1,0 +1,79 @@
+# 顶层数据清单 —— 所有 ref 相对本文件所在的 data/ 目录。
+# 校验：python3 tools/data_validator/validate.py
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+milestone: M0
+notes: >-
+  M0 首发 18 台底盘（docs/03-units-and-data.md 3.6 节 1-18）。
+  全部数值为本项目自建的相对强度设计，以 power_budget = 1000 的标准机动 MS 为基准；
+  全部 asset_binding.placeholder 为 true，运行时使用原创方块占位几何体。
+
+factions:
+  - id: faction.omni
+    name_key: loc.faction.omni
+  - id: faction.zaft
+    name_key: loc.faction.zaft
+  - id: faction.orb
+    name_key: loc.faction.orb
+  - id: faction.three_ships
+    name_key: loc.faction.three_ships
+  - id: faction.mercenary
+    name_key: loc.faction.mercenary
+
+libraries:
+  weapons:
+    - weapons/beam.yaml
+    - weapons/ballistic.yaml
+    - weapons/melee.yaml
+    - weapons/special.yaml
+  abilities:
+    - abilities/core.yaml
+  overlays:
+    - overlays/core.yaml
+  pilots:
+    - pilots/core.yaml
+  locales:
+    - locales/zh_cn.yaml
+
+chassis_index:
+  # 地球联合军 — 5
+  - ref: units/chassis/gat-x105.yaml
+    note: "1 强袭 — 换装基准"
+  - ref: units/chassis/gat-01a2r.yaml
+    note: "2 短剑 L — 量产基准"
+  - ref: units/chassis/gat-x131.yaml
+    note: "3 灾恶 — 重火力/装甲"
+  - ref: units/chassis/gat-x252.yaml
+    note: "4 禁断 — 方向防御装甲"
+  - ref: units/chassis/gat-x370.yaml
+    note: "5 强夺 — 变形 MS↔MA"
+  # ZAFT — 6
+  - ref: units/chassis/gat-x303.yaml
+    note: "6 圣盾 — 变形"
+  - ref: units/chassis/zgmf-600.yaml
+    note: "7 盖茨 — 平衡基准 power_budget 1000"
+  - ref: units/chassis/zgmf-1017.yaml
+    note: "8 金恩 — 量产杂兵"
+  - ref: units/chassis/zgmf-1000.yaml
+    note: "9 扎古勇士 — 换装"
+  - ref: units/chassis/zgmf-x56s.yaml
+    note: "10 脉冲 — 换装 + 核心"
+  - ref: units/chassis/zgmf-x24s.yaml
+    note: "11 混沌 — 变形 MA"
+  # 三舰同盟 — 4
+  - ref: units/chassis/zgmf-x10a.yaml
+    note: "12 自由 — SEED 模式叠加"
+  - ref: units/chassis/zgmf-x09a.yaml
+    note: "13 正义 — 流星合体形态"
+  - ref: units/chassis/zgmf-x42s.yaml
+    note: "14 命运 — 高机动 Boss 级"
+  - ref: units/chassis/zgmf-x20a.yaml
+    note: "15 无限正义 — 综合/后期解锁"
+  # 奥布 — 2
+  - ref: units/chassis/mbf-02.yaml
+    note: "16 强袭嫣红 — 精简换装"
+  - ref: units/chassis/mbf-m1.yaml
+    note: "17 M1 异端 — 量产/防御"
+  # 佣兵 / 中立 — 1
+  - ref: units/chassis/mbf-p02.yaml
+    note: "18 红色异端 — 近战特化"

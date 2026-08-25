@@ -1,0 +1,55 @@
+# 驾驶员与特质库。
+# 合规约束：M0 仅收录 **原创驾驶员与通用模板**，不收录任何官方角色姓名或肖像。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+traits:
+  - id: trait.coordinator
+    display_name_key: loc.trait.coordinator
+  - id: trait.natural
+    display_name_key: loc.trait.natural
+  - id: trait.seed_awakening
+    display_name_key: loc.trait.seed_awakening
+    notes: "觉醒特质；overlay.seed_mode 的触发前提。"
+  - id: trait.veteran
+    display_name_key: loc.trait.veteran
+
+pilots:
+  - id: pilot.avatar_lead
+    display_name_key: loc.pilot.avatar_lead
+    kind: player_avatar
+    origin: original
+    growth_template: growth.balanced
+    traits: [trait.seed_awakening]
+    abilities: [ability.sp.pilot_focus, ability.additional.last_stand]
+    notes: "玩家创建的原创主角占位；自然人/调整者由创角流程写入 traits。"
+
+  - id: pilot.avatar_partner
+    display_name_key: loc.pilot.avatar_partner
+    kind: partner
+    origin: original
+    growth_template: growth.support
+    traits: [trait.coordinator]
+    abilities: [ability.sp.pilot_precision]
+
+  - id: pilot.generic_rookie
+    display_name_key: loc.pilot.generic_rookie
+    kind: generic
+    origin: original
+    growth_template: growth.rookie
+    traits: [trait.natural]
+
+  - id: pilot.generic_veteran
+    display_name_key: loc.pilot.generic_veteran
+    kind: generic
+    origin: original
+    growth_template: growth.balanced
+    traits: [trait.natural, trait.veteran]
+
+  - id: pilot.generic_ace
+    display_name_key: loc.pilot.generic_ace
+    kind: generic
+    origin: original
+    growth_template: growth.ace
+    traits: [trait.coordinator, trait.veteran]
+    abilities: [ability.sp.pilot_precision]

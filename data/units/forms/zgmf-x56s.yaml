@@ -1,0 +1,73 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.zgmf_x56s
+
+forms:
+  - id: form.zgmf_x56s.force
+    display_name_key: loc.form.impulse_force
+    type: equipment_form
+    stat_modifiers:
+      mobility: 0.10
+      defense: -0.02
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_standard
+      - slot: melee
+        weapon_id: weapon.beam_saber_standard
+      - slot: sub
+        weapon_id: weapon.head_vulcan
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.assault_dash]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_x56s.sword
+    display_name_key: loc.form.impulse_sword
+    type: equipment_form
+    stat_modifiers:
+      mobility: -0.04
+      defense: 0.04
+      firepower: 0.10
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_boomerang
+      - slot: melee
+        weapon_id: weapon.anti_ship_sword
+      - slot: sub
+        weapon_id: weapon.rocket_anchor
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.blade_rush]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true
+
+  - id: form.zgmf_x56s.blast
+    display_name_key: loc.form.impulse_blast
+    type: equipment_form
+    stat_modifiers:
+      mobility: -0.12
+      firepower: 0.22
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_cannon_array
+      - slot: sub
+        weapon_id: weapon.missile_pod
+      - slot: melee
+        weapon_id: weapon.combat_knife
+      - slot: shield
+        weapon_id: weapon.shield_beam_projector
+    abilities: [ability.sp.siege_bombardment]
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

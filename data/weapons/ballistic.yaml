@@ -1,0 +1,102 @@
+# 实弹系占位武装。对 PS 装甲的表现差异由 overlay.phase_shift_armor 规则决定。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+library: ballistic
+
+weapons:
+  - id: weapon.head_vulcan
+    display_name_key: loc.weapon.head_vulcan
+    category: ballistic
+    slot_types: [sub]
+    damage_class: light
+    range_class: short
+    magazine: 60
+    total_ammo: 600
+    reload_sec: 1.2
+    notes: "牵制与削甲用途；几乎所有机体的通用副兵装。"
+    asset_binding:
+      model_id: placeholder.weapon.vulcan
+      placeholder: true
+
+  - id: weapon.machine_gun_light
+    display_name_key: loc.weapon.machine_gun_light
+    category: ballistic
+    slot_types: [main]
+    damage_class: light
+    range_class: short
+    magazine: 40
+    total_ammo: 400
+    reload_sec: 2.0
+    asset_binding:
+      model_id: placeholder.weapon.machine_gun
+      placeholder: true
+
+  - id: weapon.bazooka_ballistic
+    display_name_key: loc.weapon.bazooka_ballistic
+    category: ballistic
+    slot_types: [main]
+    damage_class: heavy
+    range_class: mid
+    magazine: 4
+    total_ammo: 24
+    reload_sec: 3.0
+    tags: [anti_armor]
+    asset_binding:
+      model_id: placeholder.weapon.bazooka
+      placeholder: true
+
+  - id: weapon.railgun_shoulder
+    display_name_key: loc.weapon.railgun_shoulder
+    category: ballistic
+    slot_types: [sub]
+    damage_class: heavy
+    range_class: long
+    magazine: 2
+    total_ammo: 20
+    reload_sec: 3.6
+    tags: [anti_armor]
+    asset_binding:
+      model_id: placeholder.weapon.railgun
+      placeholder: true
+
+  - id: weapon.missile_pod
+    display_name_key: loc.weapon.missile_pod
+    category: ballistic
+    slot_types: [sub]
+    damage_class: medium
+    range_class: mid
+    magazine: 6
+    total_ammo: 36
+    reload_sec: 2.6
+    lock_count: 6
+    tags: [multi_lock]
+    asset_binding:
+      model_id: placeholder.weapon.missile_pod
+      placeholder: true
+
+  - id: weapon.gatling_pod
+    display_name_key: loc.weapon.gatling_pod
+    category: ballistic
+    slot_types: [sub]
+    damage_class: light
+    range_class: short
+    magazine: 80
+    total_ammo: 480
+    reload_sec: 2.0
+    asset_binding:
+      model_id: placeholder.weapon.gatling
+      placeholder: true
+
+  - id: weapon.rocket_anchor
+    display_name_key: loc.weapon.rocket_anchor
+    category: ballistic
+    slot_types: [sub]
+    damage_class: light
+    range_class: mid
+    magazine: 1
+    total_ammo: 10
+    reload_sec: 3.0
+    tags: [grapple]
+    asset_binding:
+      model_id: placeholder.weapon.anchor
+      placeholder: true

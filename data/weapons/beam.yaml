@@ -1,0 +1,122 @@
+# 光束系占位武装。数值为相对强度设计，非任何官方数值转录。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+library: beam
+
+weapons:
+  - id: weapon.beam_rifle_standard
+    display_name_key: loc.weapon.beam_rifle_standard
+    category: beam
+    slot_types: [main]
+    damage_class: medium
+    range_class: mid
+    magazine: 8
+    total_ammo: 64
+    reload_sec: 2.0
+    tags: [chargeable, predictive]
+    notes: "通用主兵装基准；チャージ射撃可瞬时装填。"
+    asset_binding:
+      model_id: placeholder.weapon.rifle
+      vfx_id: placeholder.vfx.beam_bolt
+      sfx_id: placeholder.sfx.beam_fire
+      placeholder: true
+
+  - id: weapon.beam_rifle_compact
+    display_name_key: loc.weapon.beam_rifle_compact
+    category: beam
+    slot_types: [main]
+    damage_class: light
+    range_class: mid
+    magazine: 12
+    total_ammo: 96
+    reload_sec: 1.6
+    tags: [chargeable]
+    asset_binding:
+      model_id: placeholder.weapon.rifle
+      placeholder: true
+
+  - id: weapon.beam_rifle_long
+    display_name_key: loc.weapon.beam_rifle_long
+    category: beam
+    slot_types: [main]
+    damage_class: heavy
+    range_class: long
+    magazine: 4
+    total_ammo: 28
+    reload_sec: 3.2
+    tags: [chargeable, sniper_mode]
+    asset_binding:
+      model_id: placeholder.weapon.rifle_long
+      placeholder: true
+
+  - id: weapon.beam_cannon_heavy
+    display_name_key: loc.weapon.beam_cannon_heavy
+    category: beam
+    slot_types: [main]
+    damage_class: siege
+    range_class: long
+    magazine: 3
+    total_ammo: 18
+    reload_sec: 4.0
+    tags: [chargeable, anti_armor]
+    notes: "站桩炮击；配合 overlay.heavy_siege_stance 使用。"
+    asset_binding:
+      model_id: placeholder.weapon.cannon
+      placeholder: true
+
+  - id: weapon.beam_cannon_array
+    display_name_key: loc.weapon.beam_cannon_array
+    category: beam
+    slot_types: [main]
+    damage_class: heavy
+    range_class: long
+    magazine: 4
+    total_ammo: 24
+    reload_sec: 3.5
+    lock_count: 8
+    tags: [chargeable, multi_lock]
+    notes: "多联装齐射，マルチロックオン 代表武装。"
+    asset_binding:
+      model_id: placeholder.weapon.cannon_array
+      placeholder: true
+
+  - id: weapon.beam_scatter_gun
+    display_name_key: loc.weapon.beam_scatter_gun
+    category: beam
+    slot_types: [sub]
+    damage_class: light
+    range_class: short
+    magazine: 6
+    total_ammo: 48
+    reload_sec: 2.2
+    asset_binding:
+      model_id: placeholder.weapon.scatter
+      placeholder: true
+
+  - id: weapon.palm_beam_cannon
+    display_name_key: loc.weapon.palm_beam_cannon
+    category: beam
+    slot_types: [sub]
+    damage_class: medium
+    range_class: short
+    magazine: 4
+    total_ammo: 32
+    reload_sec: 2.4
+    tags: [chargeable]
+    asset_binding:
+      model_id: placeholder.weapon.palm_cannon
+      placeholder: true
+
+  - id: weapon.beam_boomerang
+    display_name_key: loc.weapon.beam_boomerang
+    category: beam
+    slot_types: [main, sub]
+    damage_class: medium
+    range_class: mid
+    magazine: 2
+    total_ammo: 14
+    reload_sec: 2.8
+    tags: [returning]
+    asset_binding:
+      model_id: placeholder.weapon.boomerang
+      placeholder: true

@@ -1,0 +1,49 @@
+# 首发 #9 扎古勇士 —— 换装（战士型 / 幻影型），验证迷彩与锁定修正。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_1000
+model_number: ZGMF-1000
+display_name_key: loc.unit.zaku_warrior
+description_key: loc.unit.zaku_warrior.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [mass_produced, swap_pack]
+
+power_budget: 1050
+base_stats:
+  hp: 1080
+  en: 120
+  mobility: 0.68
+  defense: 0.70
+  size_class: medium
+
+forms:
+  - form.zgmf_1000.warrior
+  - form.zgmf_1000.phantom
+forms_ref: units/forms/zgmf-1000.yaml
+default_form: form.zgmf_1000.warrior
+
+form_switch_policy:
+  type: mid_battle_swap
+  cooldown_sec: 10.0
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 0.75
+  allowed_states: [ground, air, space]
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_veteran
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #9（首发名单）"
+  - "机制标签：swap_pack（Wizard 型背包复用）"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

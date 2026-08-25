@@ -1,0 +1,43 @@
+# 首发 #12 自由 —— 多目标齐射 + SEED 模式叠加层验证；PS 残量 UI 对照用例 14。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x10a
+model_number: ZGMF-X10A
+display_name_key: loc.unit.freedom
+description_key: loc.unit.freedom.desc
+series: seed
+era: ce71
+faction_production: faction.zaft
+faction_playable: faction.three_ships
+tags: [phase_shift, seed_mode, prototype]
+
+power_budget: 1150
+base_stats:
+  hp: 1150
+  en: 170
+  mobility: 0.82
+  defense: 0.72
+  size_class: medium
+
+forms:
+  - form.zgmf_x10a.standard
+forms_ref: units/forms/zgmf-x10a.yaml
+default_form: form.zgmf_x10a.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #12（首发名单）"
+  - "对照用例 M-02：锁定数上限与齐射演出时序"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

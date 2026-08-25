@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+parent_chassis: chassis.gat_x252
+
+forms:
+  - id: form.gat_x252.standard
+    display_name_key: loc.form.forbidden_standard
+    type: base_form
+    stat_modifiers:
+      defense: 0.10
+      mobility: -0.03
+    weapons:
+      - slot: main
+        weapon_id: weapon.beam_rifle_long
+      - slot: melee
+        weapon_id: weapon.beam_javelin
+      - slot: sub
+        weapon_id: weapon.head_vulcan
+      - slot: shield
+        weapon_id: weapon.deflection_shield_panel
+    abilities:
+      - ability.sp.shield_charge
+      - ability.passive.reactive_plating
+    transform_graph: []
+    mode_overlays:
+      - overlay_id: overlay.phase_shift_armor
+      - overlay_id: overlay.directional_deflector
+    asset_binding:
+      model_id: placeholder.mech.block_medium
+      placeholder: true

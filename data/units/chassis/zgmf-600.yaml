@@ -1,0 +1,44 @@
+# 首发 #7 盖茨 —— 平衡型基准机（power_budget 1000 标准机动 MS）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_600
+model_number: ZGMF-600
+display_name_key: loc.unit.guaiz
+description_key: loc.unit.guaiz.desc
+series: seed
+era: ce71
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [mass_produced]
+
+power_budget: 1000
+base_stats:
+  hp: 1000
+  en: 110
+  mobility: 0.70
+  defense: 0.66
+  size_class: medium
+
+forms:
+  - form.zgmf_600.standard
+forms_ref: units/forms/zgmf-600.yaml
+default_form: form.zgmf_600.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_rookie
+  - pilot.generic_veteran
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #7（首发名单）"
+  - "3.8.1 相对基准制：本机 power_budget = 1000 为全项目锚点"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

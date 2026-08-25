@@ -1,0 +1,49 @@
+# 首发 #15 无限正义 —— 综合性能，首发后期解锁目标；可分离飞行装备为独立形态。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x20a
+model_number: ZGMF-X20A
+display_name_key: loc.unit.infinite_justice
+description_key: loc.unit.infinite_justice.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.zaft
+faction_playable: faction.three_ships
+tags: [transform, phase_shift, seed_mode, prototype]
+
+power_budget: 1180
+base_stats:
+  hp: 1180
+  en: 175
+  mobility: 0.86
+  defense: 0.74
+  size_class: medium
+
+forms:
+  - form.zgmf_x20a.standard
+  - form.zgmf_x20a.fatum
+forms_ref: units/forms/zgmf-x20a.yaml
+default_form: form.zgmf_x20a.standard
+
+form_switch_policy:
+  type: transform_only
+  cooldown_sec: 2.5
+  inherit_hp_ratio: 1.0
+  inherit_en_ratio: 1.0
+  allowed_states: [air, space]
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.avatar_partner
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #15（首发名单）"
+  - "解锁定位：首发后期目标机体"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

@@ -1,0 +1,43 @@
+# 首发 #18 红色异端 —— 近战特化，验证异端骨架与自定义长刀武装。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.mbf_p02
+model_number: MBF-P02
+display_name_key: loc.unit.astray_red_frame
+description_key: loc.unit.astray_red_frame.desc
+series: astray
+era: ce71
+faction_production: faction.orb
+faction_playable: faction.mercenary
+tags: [melee, prototype]
+
+power_budget: 1030
+base_stats:
+  hp: 960
+  en: 115
+  mobility: 0.74
+  defense: 0.62
+  size_class: medium
+
+forms:
+  - form.mbf_p02.standard
+forms_ref: units/forms/mbf-p02.yaml
+default_form: form.mbf_p02.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #18（首发名单）"
+  - "机制标签：melee 特化，长连段与硬直抗性验证"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true

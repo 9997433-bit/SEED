@@ -1,0 +1,43 @@
+# 首发 #14 命运 —— 高机动 Boss 级手感调校；光翼/残像表现原创（对照用例 M-04 仅要求触发规则一致）。
+schema_version: "1.0.0"
+balance_patch: "2026.08.0"
+
+id: chassis.zgmf_x42s
+model_number: ZGMF-X42S
+display_name_key: loc.unit.destiny
+description_key: loc.unit.destiny.desc
+series: seed_destiny
+era: ce73
+faction_production: faction.zaft
+faction_playable: faction.zaft
+tags: [phase_shift, boss, prototype]
+
+power_budget: 1180
+base_stats:
+  hp: 1200
+  en: 180
+  mobility: 0.88
+  defense: 0.74
+  size_class: medium
+
+forms:
+  - form.zgmf_x42s.standard
+forms_ref: units/forms/zgmf-x42s.yaml
+default_form: form.zgmf_x42s.standard
+
+form_switch_policy:
+  type: none
+
+compatible_pilots:
+  - pilot.avatar_lead
+  - pilot.generic_ace
+
+sources:
+  - "docs/03-units-and-data.md 3.6 #14（首发名单）"
+  - "对照用例 M-04：光翼/残像触发规则"
+
+asset_binding:
+  model_id: placeholder.mech.block_medium
+  skeleton_id: placeholder.skel.humanoid_v1
+  icon_id: placeholder.icon.unit
+  placeholder: true
