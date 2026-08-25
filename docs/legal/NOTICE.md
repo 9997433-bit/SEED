@@ -9,6 +9,7 @@
 - 本项目与 **万代南梦宫娱乐（Bandai Namco Entertainment）**、**Sunrise / BANDAI SPIRITS**、**Bandai Namco Forge Digitals** 或任何官方权利方 **无关联、未获授权、未获认可**。
 - 本项目 **不包含、不分发、不依赖** 任何官方模型、贴图、动画、UI 美术、字体、BGM、音效、语音、剧本文本或数值表文件。
 - 本项目 **不包含** 针对原作专有格式的拆包、解密、反编译工具或教程。
+- 完整合规红线见 [`docs/REMAKE-PLAN.md`](../REMAKE-PLAN.md) 第五章；M0 合规审计见 [`docs/M0-STATUS.md`](../M0-STATUS.md)。
 - 「GUNDAM」「SEED」「BATTLE DESTINY」等为其各自权利方的商标；文档中出现仅用于 **说明对照关系**，不表示任何授权关系。
 
 ## 2. 本仓库代码与数据许可
