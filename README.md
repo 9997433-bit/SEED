@@ -29,8 +29,6 @@ Steam 正式版 REMASTERED（[AppID 1857740](https://store.steampowered.com/app/
 | 版权流程初版（LICENSE / NOTICE / 资产登记） | ✅ |
 | 战斗、任务、养成玩法 | ⛔ M1 起 |
 
-![M0 标题画面](docs/images/m0-title-screen.png)
-
 ## 快速开始
 
 ```bash
