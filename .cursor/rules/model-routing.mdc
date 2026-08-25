@@ -1,0 +1,40 @@
+---
+alwaysApply: true
+---
+
+# 模型路由（Standing）
+
+本仓库固定模型分配。父代理保持 Auto；子代理按任务类型选模型。
+
+## 父代理（主对话 / Cloud Agent）
+
+- **模型**：Auto
+- **model id**：`default`
+- **别名**：`auto`
+- **规则**：不要将父代理切换到其他模型。
+
+## 子代理模型列表
+
+通过 Task 工具 spawn 子代理时，按任务类型设置 `model` 参数：
+
+| 任务类型 | model 参数 | 说明 |
+| --- | --- | --- |
+| 写代码、改代码、实现功能 | `claude-opus-5-thinking-high-fast` | Claude Opus 5 Fast（`claude-opus-5`，`fast=true`；别名 o5fast） |
+| 分析、调研、写计划 / 设计 / 方案 | `claude-fable-5-thinking-xhigh` | Claude Fable 5 最高配置（见下表） |
+
+### Fable 5 子代理配置（分析 / 调研 / 规划 / 设计 / 方案）
+
+| 参数 | 值 |
+| --- | --- |
+| model id | `claude-fable-5`（别名 fable、fable-5） |
+| thinking | `true` |
+| effort | `max` |
+| context | `1m` |
+| Task `model` 参数 | `claude-fable-5-thinking-xhigh` |
+
+### 子代理类型对照
+
+- **写/改代码**：`generalPurpose`、`computerUse`、`best-of-n-runner`，以及任何会编辑仓库文件的子代理 → Opus 5 Fast
+- **分析/调研/规划**：`explore`、方案设计、架构评审、只读调研 → Fable 5（thinking=true，effort=max，context=1m）
+
+不要对子代理使用 `inherit`；始终显式传入上表中的 `model` 值。
