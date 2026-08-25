@@ -21,12 +21,19 @@ Steam 正式版 REMASTERED（[AppID 1857740](https://store.steampowered.com/app/
 
 ## 当前状态：M0（立项基线）
 
+对照 Steam REMASTERED（[AppID 1857740](https://store.steampowered.com/app/1857740/)）的系统与体验；已锁定决策见
+[`docs/adr/ADR-0001-locked-decisions.md`](./docs/adr/ADR-0001-locked-decisions.md)。
+**完整验收表**见 [`docs/M0-STATUS.md`](./docs/M0-STATUS.md)。
+
 | 交付项 | 状态 |
 |--------|------|
 | Godot 4 工程骨架，可运行的占位场景 + 标题 UI | ✅ |
 | 数据 Schema v1 + 首发 18 台底盘完整条目 | ✅ |
 | 数据校验 CLI（Schema + 引用完整性）与 CI 阻断 | ✅ |
+| 数据样板加载（`units_index.json` → Godot 标题画面） | ✅ |
 | 版权流程初版（LICENSE / NOTICE / 资产登记） | ✅ |
+| Switch / Steam 平台 spike 文档 | ✅ |
+| PC CI 出包（Godot 导出） | 待办（M1） |
 | 战斗、任务、养成玩法 | ⛔ M1 起 |
 
 ## 快速开始
@@ -75,10 +82,14 @@ M0 数据集：**18 台底盘 / 29 个形态 / 27 件占位武装 / 16 个技能
 
 ## 文档
 
+- [**M0 验收状态**](./docs/M0-STATUS.md) — 里程碑 checklist、未完成项、对照 AppID 1857740
+- [**数据 Schema 作者指南**](./docs/data-schema.md) — 字段语义、ID 规范、新增机体、R-* 规则表
 - [总方案计划（战斗 / 战役 / 架构 / 里程碑 / 版权红线）](./docs/REMAKE-PLAN.md)
-- [机体与数据（Schema / 首发名单 / 100+ 路径）](./docs/03-units-and-data.md)
+- [机体与数据（概念模型 / 首发名单 / 100+ 路径）](./docs/03-units-and-data.md)
+- [数据目录索引](./data/README.md)
 - [数据校验器说明](./tools/data_validator/README.md)
 - [Godot 工程说明](./game/README.md)
+- [已锁定决策 ADR-0001](./docs/adr/ADR-0001-locked-decisions.md)
 - [法务 NOTICE 与资产登记](./docs/legal/NOTICE.md)
 
 ## 许可证
