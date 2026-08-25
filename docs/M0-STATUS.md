@@ -118,6 +118,45 @@
 
 ---
 
+## 合规审计
+
+> **审计日期**：2026-08-25  
+> **审计范围**：`tools/`、`game/`、`data/`、`.github/`（含工作流与 PR 模板）  
+> **依据条款**：[`docs/REMAKE-PLAN.md`](./REMAKE-PLAN.md) **§5.0 合规红线（必读）**
+
+### 结论
+
+**通过** — M0 仓库未发现拆包/提取工具、官方二进制资产或提取教程；占位资产均为运行时程序化生成，与 §5.0 要求一致。
+
+### 分项记录
+
+| 检查项 | 范围 | 结果 | 说明 |
+|--------|------|------|------|
+| 拆包 / 解密 / 提取工具 | `tools/` | ✅ 未发现 | 仅含 `data_validator/`（YAML/JSON Schema 校验）与 `ci/godot_log_filter.py`（Godot 日志过滤）；无针对原作专有格式的逆向脚本 |
+| 官方二进制资产 | `game/assets/` | ✅ 未发现 | 目录仅 `placeholder/README.md`；无模型 / 贴图 / 音频 / 字体文件 |
+| 程序化占位 | `game/scripts/common/placeholder_mech.gd` | ✅ 合规 | 运行时 `BoxMesh` 拼装，无外部素材依赖 |
+| 引擎自带图标 | `game/icon.svg` | ✅ 合规 | Godot 默认工程图标，非官方游戏资产 |
+| 数据文件 | `data/**` | ✅ 合规 | 全部为 YAML / JSON 文本；`asset_binding.placeholder = true`；数值为自建相对强度 |
+| 构建产物 | `game/data_build/units_index.json` | ✅ 合规 | 由 `make validate-data` 从 `data/` 生成，非官方导出 |
+| CI 工作流 | `.github/workflows/` | ✅ 合规 | `build-pc.yml` 中 `unzip` 仅解压 **Godot 引擎** 发行包，非游戏安装包 |
+| 提取教程 / 拆包路径 | 全仓库文档 | ✅ 未发现 | 合规表述仅出现在禁止性条款中；**无**提取步骤或安装目录拆包路径 |
+| PR 合规守门 | `.github/PULL_REQUEST_TEMPLATE.md` | ✅ 已配置 | 含资产来源、逆向红线、对外表述勾选项 |
+
+### 与 §5.0 条款对照
+
+| §5.0 类别 | M0 现状 |
+|-----------|---------|
+| **禁止提取** | 无 Steam / ROM / Pak 来源文件 |
+| **禁止占位取巧** | 无「先官方后替换」资产或计划 |
+| **禁止逆向工具** | 无拆包 / 解密 / 提取工具入库 |
+| **资产起点** | 自 M0 起即为程序化方块占位 |
+| **允许对照** | 文档允许个人游玩 AppID **1857740** 对照；对照母带不入 Git |
+| **文档边界** | 仓库内无资源提取步骤或逆向技术说明 |
+
+维护者可在里程碑推进或引入新资产目录时复跑本表；全量资产审计流程见 [`docs/legal/asset-checklist.md`](./legal/asset-checklist.md) 与 [`docs/REMAKE-PLAN.md`](./REMAKE-PLAN.md) §5.3。
+
+---
+
 ## 仓库交叉引用索引
 
 | 文档 | 与 M0-STATUS 对齐点 |
