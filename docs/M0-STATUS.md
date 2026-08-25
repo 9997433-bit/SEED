@@ -41,10 +41,13 @@
 | M0-04 | **数据 CI 阻断** — 校验失败或构建产物过期则失败 | ✅ | `.github/workflows/validate-data.yml`（含 jsonschema 与内置子集双路径、`--check-index`） |
 | M0-05 | **首发 18 台底盘数据条目** | ✅ | `data/units_manifest.yaml` `milestone: M0`；18 chassis / 29 forms / 27 weapons；`R-MILESTONE-011` 通过 |
 | M0-06 | **机制代表数据覆盖**（换装 / 变形 / 装甲模式） | ✅ | 数据层已建模：强袭三装、圣盾/强夺/混沌变形链、自由 SEED 叠加层等；**运行时行为** ⛔ M1 起 |
-| M0-07 | **版权流程初版** | ✅ | 根目录 `LICENSE`（MIT）；[`docs/legal/NOTICE.md`](./legal/NOTICE.md) 非官方声明 + 资产登记表；README 显著免责声明 |
-| M0-08 | **Switch spike 文档** | ✅ | [`platform/switch/README.md`](../platform/switch/README.md) — 性能预算、输入、devkit 边界；不含 SDK/密钥 |
+| M0-07 | **版权流程初版** | ✅ | 根目录 `LICENSE`（MIT）；[`docs/legal/NOTICE.md`](./legal/NOTICE.md) 非官方声明 + 资产登记表；[`docs/legal/asset-checklist.md`](./legal/asset-checklist.md) 逐条检查单；[`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md) 内置资产来源勾选项；README 显著免责声明 |
+| M0-08 | **Switch spike 文档** | ✅ | [`docs/switch-feasibility-spike.md`](./switch-feasibility-spike.md) — 公开事实基线、阻塞项 B-1～B-6、PC 侧约束模拟方案；[`platform/switch/README.md`](../platform/switch/README.md) 目录约定；**无 NDA 内容、无 SDK/密钥** |
 | M0-09 | **Steam 平台占位文档** | ✅ | [`platform/steam/README.md`](../platform/steam/README.md) — 对照 AppID 1857740、禁止拆包、M1 出包规划 |
-| M0-10 | **PC CI 出包** — 自动化导出可玩 PC 构建 | 待办 | M0 仅数据 CI；`game/README.md` 注明 `export_presets.cfg` 与 Godot 导出 CI **M1 接入** |
+| M0-10 | **PC CI** — Godot 工程不腐化守门 | ✅ | [`.github/workflows/build-pc.yml`](../.github/workflows/build-pc.yml)：Godot 4.3 headless `--import` + 全量 `.gd` `--check-only` + 主场景跑约 5 秒 + 冒烟断言脚本；日志经 `tools/ci/godot_log_filter.py` 过滤（放行 headless 假渲染器噪声） |
+| M0-10b | **PC 出包 CI** — 导出可分发构建 + artifact | 待办 | 需 `export_presets.cfg` 与导出模板下载；**M1 接入**（见 `game/README.md` 已知限制） |
+| M0-14 | **美术资产管线规范** | ✅ | [`docs/art-pipeline.md`](./art-pipeline.md) — 原创资产红线、Blender→glTF→Godot、命名/预算/LOD/压缩、入库流程；M0 无任何外部素材文件 |
+| M0-15 | **全局设置骨架**（音量 / 语言） | ✅ | `game/scripts/autoload/settings.gd` + `project.godot [autoload]`；持久化 `user://settings.cfg`；**不含玩法**，设置 UI M1 起 |
 | M0-11 | **战斗 / 任务 / 养成玩法** | ⛔ | 明确为 **M1–M2** 范围；标题画面「出击」仅为占位提示 |
 | M0-12 | **Steamworks / 成就 / 云存档** | ⛔ | REMAKE-PLAN 全局优先级 **Later** |
 | M0-13 | **100+ 机体全量** | ⛔ | M0 仅 18 机数据样板；全量 **Later** |
@@ -70,6 +73,9 @@
 | 文档 | 用途 |
 |------|------|
 | [`docs/data-schema.md`](./data-schema.md) | 数据作者 Schema 说明、ID 规范、新增机体流程、R-* 规则表 |
+| [`docs/art-pipeline.md`](./art-pipeline.md) | 原创资产制作规范与入库流程 |
+| [`docs/switch-feasibility-spike.md`](./switch-feasibility-spike.md) | Switch 可行性、阻塞项与替代验证方案 |
+| [`docs/legal/asset-checklist.md`](./legal/asset-checklist.md) | PR 资产入场逐条检查单 |
 | [`docs/03-units-and-data.md`](./03-units-and-data.md) | 机体内容规划、首发 18 机名单、100+ 路线图 |
 | [`tools/data_validator/README.md`](../tools/data_validator/README.md) | 校验 CLI 用法与规则详解 |
 | [`game/README.md`](../game/README.md) | Godot 工程打开方式与数据管线 |
@@ -84,6 +90,10 @@ make validate-data      # 校验 + 刷新 game/data_build/units_index.json
 make validate-data-strict
 python3 tests/test_data_validator.py
 # Godot 4.3+ → 导入 game/project.godot → F5
+# 无 GUI 时复现 CI：
+godot --headless --path game --import
+godot --headless --path game --max-fps 60 --quit-after 300
+godot --headless --path game --script res://scripts/ci/headless_smoke.gd
 ```
 
 最近一次本地校验：`0 error, 0 warning`（`--strict`）。
@@ -94,7 +104,10 @@ python3 tests/test_data_validator.py
 
 | 项 | 计划里程碑 | 备注 |
 |----|------------|------|
-| PC CI 出包（Godot 导出 + artifact） | M1 | 需 `export_presets.cfg` 与 headless 导出脚本 |
+| PC CI 出包（Godot 导出 + artifact） | M1 | 需 `export_presets.cfg` 与导出模板；M0 的 `build-pc` 只做导入 + headless 冒烟 |
+| 设置界面 UI（音量 / 语言） | M1 | `Settings` autoload 已有数据与持久化，缺 UI |
+| Switch 约束模拟档（30fps / 720p / 手柄唯一 / 同屏 ≤9） | M1 | 见 [`switch-feasibility-spike.md`](./switch-feasibility-spike.md) §5 |
+| 资产 CI（贴图尺寸 / 三角面 / 命名自动检查） | M3 | 见 [`art-pipeline.md`](./art-pipeline.md) §9 |
 | 战斗 / 锁敌 / 主副格闘等玩法 | M1 | 对照 REMASTERED 默认战斗循环 |
 | 任务→出击→结算闭环 | M2 | ADR-0001：大天使号 × C.E.71 × 18 机 |
 | `docs/images/m0-unit-catalog.png`（README 引用图） | 待办 | 可选宣传图；不影响数据/工程验收 |

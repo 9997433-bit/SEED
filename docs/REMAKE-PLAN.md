@@ -549,7 +549,7 @@ YAML/JSON 源数据 → Schema 校验 → 构建产物（ID 表、本地化键�
 | PC | Steamworks + Windows x64 优先 | 可选 Linux |
 | Switch | Godot Switch 导出 | 需任天堂开发者资格 |
 | 数据 | JSON/YAML + 运行时 Resource 缓存 | 见 `data/` |
-| 3D | Blender → glTF → Godot | 规范见 `docs/art-pipeline.md`（待建） |
+| 3D | Blender → glTF → Godot | 规范见 [`docs/art-pipeline.md`](art-pipeline.md) |
 | CI | GitHub Actions（PC）；Switch 私有构建 | 密钥不进公有 CI |
 | 测试 | GUT + 战斗输入回放 | 性能基准场景 |
 
@@ -582,8 +582,9 @@ seed/                          # 本仓库根
 ├── README.md
 ├── docs/
 │   ├── REMAKE-PLAN.md         # 本文件
-│   ├── art-pipeline.md        # 待建
-│   └── legal/                 # NOTICE、资产来源（待建）
+│   ├── art-pipeline.md        # 原创资产管线规范
+│   ├── switch-feasibility-spike.md
+│   └── legal/                 # NOTICE、资产入场检查单
 ├── game/                      # Godot 工程（M0 创建）
 │   ├── project.godot
 │   ├── scenes/                # bridge(任务/UI)、combat、common
@@ -658,8 +659,8 @@ seed/                          # 本仓库根
 
 ### 5.3 流程保障
 
-- 资产入场检查表（作者、许可证、来源链接）  
-- PR 模板：贡献者声明未含官方提取物  
+- 资产入场检查表（作者、许可证、来源链接）→ [`docs/legal/asset-checklist.md`](legal/asset-checklist.md)  
+- PR 模板：贡献者声明未含官方提取物 → [`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md)  
 - `docs/legal/NOTICE` 随构建附第三方许可  
 - 权利人通知后 48 小时内停止分发并移除争议资产  
 - 每个里程碑发布前全量资产审计  

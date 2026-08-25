@@ -31,9 +31,10 @@ Steam 正式版 REMASTERED（[AppID 1857740](https://store.steampowered.com/app/
 | 数据 Schema v1 + 首发 18 台底盘完整条目 | ✅ |
 | 数据校验 CLI（Schema + 引用完整性）与 CI 阻断 | ✅ |
 | 数据样板加载（`units_index.json` → Godot 标题画面） | ✅ |
-| 版权流程初版（LICENSE / NOTICE / 资产登记） | ✅ |
+| 版权流程初版（LICENSE / NOTICE / 资产登记 / PR 检查单） | ✅ |
 | Switch / Steam 平台 spike 文档 | ✅ |
-| PC CI 出包（Godot 导出） | 待办（M1） |
+| PC CI（Godot 4.3 headless 导入 + 主场景冒烟） | ✅ |
+| PC 出包 CI（Godot 导出模板 + artifact） | 待办（M1） |
 | 战斗、任务、养成玩法 | ⛔ M1 起 |
 
 ## 快速开始
@@ -55,15 +56,27 @@ python3 tools/data_validator/validate.py --strict  # Warning 也视为失败
 python3 tests/test_data_validator.py               # 校验器自身的反向测试
 ```
 
+无 GUI 环境（或想复现 CI）时，可用 Godot 4.3 headless 跑一遍工程冒烟：
+
+```bash
+godot --headless --path game --import                       # 导入资源
+godot --headless --path game --max-fps 60 --quit-after 300  # 主场景跑约 5 秒
+godot --headless --path game --script res://scripts/ci/headless_smoke.gd
+```
+
+headless 下会刷出 `Parameter "m" is null.`（假渲染器取不到 Mesh）属正常噪声，
+CI 用 `tools/ci/godot_log_filter.py` 放行这类噪声、拦截其余错误。
+
 ## 仓库结构
 
 ```text
 ├── game/          Godot 4 工程（M0：标题场景 + 原创方块占位机体）
 ├── data/          YAML 源数据 + JSON Schema（机体 / 形态 / 武装 / 技能 / 驾驶员 / 本地化）
-├── tools/         data_validator：Schema 与引用完整性校验 CLI
+├── tools/         data_validator：Schema 与引用完整性校验 CLI；ci：Godot 日志检查
 ├── tests/         校验器反向测试
 ├── platform/      steam / switch 平台适配层占位
-└── docs/          方案计划、机体与数据设计、法务 NOTICE
+├── .github/       CI 工作流（validate-data / build-pc）与 PR 模板
+└── docs/          方案计划、机体与数据设计、美术管线、平台 spike、法务
 ```
 
 ## 数据管线
@@ -89,8 +102,11 @@ M0 数据集：**18 台底盘 / 29 个形态 / 27 件占位武装 / 16 个技能
 - [数据目录索引](./data/README.md)
 - [数据校验器说明](./tools/data_validator/README.md)
 - [Godot 工程说明](./game/README.md)
+- [美术资产管线（原创资产规范）](./docs/art-pipeline.md)
+- [Switch 可行性 spike（公开信息 + 阻塞项）](./docs/switch-feasibility-spike.md)
 - [已锁定决策 ADR-0001](./docs/adr/ADR-0001-locked-decisions.md)
 - [法务 NOTICE 与资产登记](./docs/legal/NOTICE.md)
+- [资产入场检查单（PR 用）](./docs/legal/asset-checklist.md)
 
 ## 许可证
 

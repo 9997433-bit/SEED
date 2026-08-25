@@ -17,6 +17,8 @@
 | `scenes/combat/` | 战斗场景（M1 起） |
 | `scenes/common/` | 通用场景，含占位机体 |
 | `scripts/ui/` | UI 逻辑 |
+| `scripts/autoload/` | 全局单例（M0 仅 `Settings`：音量 / 界面语言占位） |
+| `scripts/ci/` | CI 冒烟脚本（headless 断言，不参与玩法） |
 | `scripts/common/` | 通用运行时组件（占位机体拼装） |
 | `scripts/data/` | 数据构建产物载入 |
 | `scripts/combat/` `scripts/mission/` `scripts/progression/` | M1+ 预留 |
@@ -40,9 +42,35 @@ make validate-data
 
 产物过期时 CI 会失败（`make check-data-index`）。
 
+## 全局设置（Settings autoload）
+
+`scripts/autoload/settings.gd` 注册为 autoload `Settings`，M0 只覆盖 **音量**（`master` / `music` /
+`sfx`，写入同名音频总线，总线不存在时静默跳过）与 **界面语言**（`zh_CN` / `en`），持久化到
+`user://settings.cfg`。不含任何战斗或任务逻辑；画质档与键位自定义在 M1+ 接入。
+
+```gdscript
+Settings.set_volume("master", 0.6)
+Settings.set_locale("en")
+Settings.settings_changed.connect(func(section, key, value): pass)
+```
+
+## headless 冒烟（CI 复现）
+
+```bash
+godot --headless --path game --import
+godot --headless --path game --max-fps 60 --quit-after 300          # 主场景跑约 5 秒
+godot --headless --path game --script res://scripts/ci/headless_smoke.gd
+```
+
+冒烟脚本断言数据构建产物规模、`Settings` autoload 可用、主场景可实例化并跑满 120 帧。
+headless 假渲染器会刷 `Parameter "m" is null.`，由 `tools/ci/godot_log_filter.py` 放行；
+其余 `ERROR` / `SCRIPT ERROR` 一律判失败。完整流程见 `.github/workflows/build-pc.yml`。
+
 ## 已知限制（M0）
 
 - **中文字体**：UI 使用 `SystemFont` 按名查找系统中的 CJK 字体（Noto Sans CJK / 思源黑体 / 微软雅黑 / 苹方等）。
   若系统缺少上述字体，中文会显示为缺字方框；正式的字体授权与打包在本地化管线（M3）处理。
 - 无战斗、无任务、无存档；按钮「出击」仅提示 M1 实装。
-- 未提交 `export_presets.cfg`：导出配置由各自本地生成，PC 出包在 M1 的 CI 中接入。
+- `Settings` 只有数据与持久化，尚无设置界面（UI 在 M1 与标题画面一起做）。
+- 未提交 `export_presets.cfg`：导出配置由各自本地生成，PC 出包（导出模板 + artifact）在 M1 的 CI 中接入；
+  M0 的 `build-pc` 工作流只做导入与 headless 冒烟。

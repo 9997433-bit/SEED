@@ -44,6 +44,10 @@
 3. 原始来源 URL 或委托合同编号
 4. 是否包含任何官方作品的直接派生（若是 → 拒绝合入）
 
+完整逐条检查单见 [`asset-checklist.md`](./asset-checklist.md)，PR 模板
+[`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md) 已内置对应勾选项；
+资产制作与命名规范见 [`docs/art-pipeline.md`](../art-pipeline.md)。
+
 ## 5. 数据来源声明
 
 `data/` 下的数值 **均为本项目自建的相对强度设计**（以 `power_budget = 1000` 为标准机动 MS 基准），不是从任何官方产品提取、抄录或反推的数值表。机制标签（换装 / 变形 / 装甲）来自公开可获得的作品设定与公开攻略社区的机制描述。
